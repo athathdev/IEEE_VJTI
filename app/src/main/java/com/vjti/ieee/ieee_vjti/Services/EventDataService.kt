@@ -1,6 +1,6 @@
 package com.vjti.ieee.ieee_vjti.Services
 
-import com.vjti.ieee.ieee_vjti.Model.Card_Info_Collector
+import com.vjti.ieee.ieee_vjti.Model.Event_Card_Info_Collector
 
 /**
  * Created by mandar on 24-10-2017.
@@ -19,14 +19,24 @@ class EventDataService {
 
     }
 
-    fun getFeaturedStations(): ArrayList<Card_Info_Collector> {
+    fun getFeaturedStations(): ArrayList<Event_Card_Info_Collector> {
         //Pretend we just downloaded featured stations from the Internet
 
-        val list = ArrayList<Card_Info_Collector>()
-        list.add(Card_Info_Collector("Flight Plan (Tunes for Travel)", "@mipmap/ic_launcher_round","Flight Plan (Tunes for Travel)", "@mipmap/ic_launcher_round"))
-        list.add(Card_Info_Collector("Two-Wheelin' (Biking Playlist)", "@mipmap/ic_launcher_round","Flight Plan (Tunes for Travel)", "@mipmap/ic_launcher_round"))
-        list.add(Card_Info_Collector("Kids Jams (Music for Children", "@mipmap/ic_launcher_round","Flight Plan (Tunes for Travel)", "@mipmap/ic_launcher_round"))
-
+        val list = ArrayList<Event_Card_Info_Collector>()
+        list.add(Event_Card_Info_Collector("Workshop","manshdjkkflpwoirutyuwqopjjfnjnjvskn\nkcdmdfikmmmckdmmimimnvjnfslmckdmknjnnvnvnvjn\ndcnsdnnvnjfnvjnnv", "@mipmap/ic_launcher_round"))
+        list.add(Event_Card_Info_Collector("Robotics","manshdjkkflpwoiru\ntyuwqopjjfnjnjvskn\nkcdmdfikmmmckdmmimimnvjnfslmckdmknjnnvnvnvjn\ndcnsdnnvnjfnvjnnv", "@mipmap/ic_launcher_round"))
+        list.add(Event_Card_Info_Collector("Workshop","manshdjkkflpwoirutyuwqopjjfnjnjvskn\nkcdmdfikmmmckdmmimimnvjnfslmckdmknjnnvnvnvjn\ndcnsdnnvnjfnvjnnv", "@mipmap/ic_launcher_round"))
+        list.add(Event_Card_Info_Collector("Robotics","manshdjkkflpwoiru\ntyuwqopjjfnjnjvskn\nkcdmdfikmmmckdmmimimnvjnfslmckdmknjnnvnvnvjn\ndcnsdnnvnjfnvjnnv", "@mipmap/ic_launcher_round"))
+        list.add(Event_Card_Info_Collector("Workshop","manshdjkkflpwoirutyuwqopjjfnjnjvskn\nkcdmdfikmmmckdmmimimnvjnfslmckdmknjnnvnvnvjn\ndcnsdnnvnjfnvjnnv", "@mipmap/ic_launcher_round"))
+        list.add(Event_Card_Info_Collector("Robotics","manshdjkkflpwoiru\ntyuwqopjjfnjnjvskn\nkcdmdfikmmmckdmmimimnvjnfslmckdmknjnnvnvnvjn\ndcnsdnnvnjfnvjnnv", "@mipmap/ic_launcher_round"))
+        list.add(Event_Card_Info_Collector("Workshop","manshdjkkflpwoirutyuwqopjjfnjnjvskn\nkcdmdfikmmmckdmmimimnvjnfslmckdmknjnnvnvnvjn\ndcnsdnnvnjfnvjnnv", "@mipmap/ic_launcher_round"))
+        list.add(Event_Card_Info_Collector("Robotics","manshdjkkflpwoiru\ntyuwqopjjfnjnjvskn\nkcdmdfikmmmckdmmimimnvjnfslmckdmknjnnvnvnvjn\ndcnsdnnvnjfnvjnnv", "@mipmap/ic_launcher_round"))
+        list.add(Event_Card_Info_Collector("Workshop","manshdjkkflpwoirutyuwqopjjfnjnjvskn\nkcdmdfikmmmckdmmimimnvjnfslmckdmknjnnvnvnvjn\ndcnsdnnvnjfnvjnnv", "@mipmap/ic_launcher_round"))
+        list.add(Event_Card_Info_Collector("Robotics","manshdjkkflpwoiru\ntyuwqopjjfnjnjvskn\nkcdmdfikmmmckdmmimimnvjnfslmckdmknjnnvnvnvjn\ndcnsdnnvnjfnvjnnv", "@mipmap/ic_launcher_round"))
+        list.add(Event_Card_Info_Collector("Workshop","manshdjkkflpwoirutyuwqopjjfnjnjvskn\nkcdmdfikmmmckdmmimimnvjnfslmckdmknjnnvnvnvjn\ndcnsdnnvnjfnvjnnv", "@mipmap/ic_launcher_round"))
+        list.add(Event_Card_Info_Collector("Robotics","manshdjkkflpwoiru\ntyuwqopjjfnjnjvskn\nkcdmdfikmmmckdmmimimnvjnfslmckdmknjnnvnvnvjn\ndcnsdnnvnjfnvjnnv", "@mipmap/ic_launcher_round"))
+        list.add(Event_Card_Info_Collector("Workshop","manshdjkkflpwoirutyuwqopjjfnjnjvskn\nkcdmdfikmmmckdmmimimnvjnfslmckdmknjnnvnvnvjn\ndcnsdnnvnjfnvjnnv", "@mipmap/ic_launcher_round"))
+        list.add(Event_Card_Info_Collector("Robotics","manshdjkkflpwoiru\ntyuwqopjjfnjnjvskn\nkcdmdfikmmmckdmmimimnvjnfslmckdmknjnnvnvnvjn\ndcnsdnnvnjfnvjnnv", "@mipmap/ic_launcher_round"))
         return list
     }
 }

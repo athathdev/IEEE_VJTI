@@ -5,6 +5,7 @@ import android.graphics.Rect
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -45,11 +46,11 @@ class MainEventFragment : Fragment() {
         val view = inflater!!.inflate(R.layout.fragment_main_event, container, false)
         val recyclerView = view.findViewById<RecyclerView>(R.id.content_event_recycler)
         recyclerView.setHasFixedSize(true)
-        recyclerView.addItemDecoration(HorizontalSpaceItemDecorator(30))
+        recyclerView.addItemDecoration(HorizontalSpaceItemDecorator(20))
         var eventdata : EventDataService = EventDataService().getInstance()
         val event_adapter = Event_Adapters(eventdata.getFeaturedStations())
         recyclerView.adapter = event_adapter
-        val layoutManager = LinearLayoutManager(getContext())
+        val layoutManager = GridLayoutManager(getContext(),2)
         layoutManager.orientation = LinearLayoutManager.VERTICAL
         recyclerView.layoutManager = layoutManager
         return view
@@ -119,10 +120,9 @@ class MainEventFragment : Fragment() {
 
         override  fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
             super.getItemOffsets(outRect, view, parent, state)
-            outRect.bottom = spacer
             outRect.top = spacer
-            outRect.left = spacer*2
-            outRect.right = spacer*2
+            outRect.left = spacer/2
+            outRect.right = spacer/2
         }
     }
 }// Required empty public constructor

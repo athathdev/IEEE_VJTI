@@ -26,7 +26,7 @@
         card_view:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/event_title"
+            android:id="@+id/project_title"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_gravity="center"
@@ -42,7 +42,7 @@
             android:textStyle="bold" />
 
         <ImageView
-            android:id="@+id/event_image"
+            android:id="@+id/project_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -52,7 +52,7 @@
             android:src="@mipmap/ic_launcher_round" />
 
         <TextView
-            android:id="@+id/event_discription"
+            android:id="@+id/project_discription"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_gravity="center"

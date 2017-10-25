@@ -1,13 +1,18 @@
 package com.vjti.ieee.ieee_vjti.Fragments
 
-import android.support.v4.app.Fragment
 import android.content.Context
+import android.graphics.Rect
 import android.net.Uri
 import android.os.Bundle
+import android.support.v4.app.Fragment
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.vjti.ieee.ieee_vjti.Adapters.Home_Adapter
 import com.vjti.ieee.ieee_vjti.R
+import com.vjti.ieee.ieee_vjti.Services.HomeDataService
 
 class MainHomeFragment : Fragment() {
 
@@ -28,7 +33,17 @@ class MainHomeFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        return inflater!!.inflate(R.layout.fragment_main_home, container, false)
+        val view = inflater!!.inflate(R.layout.fragment_main_home, container, false)
+        val recyclerView = view.findViewById<RecyclerView>(R.id.content_home_recycler)
+        recyclerView.setHasFixedSize(true)
+        recyclerView.addItemDecoration(HorizontalSpaceItemDecorator(20))
+        var homedata : HomeDataService = HomeDataService().getInstance()
+        val home_adapter = Home_Adapter(homedata.getFeaturedStations())
+        recyclerView.adapter = home_adapter
+        val layoutManager = LinearLayoutManager(getContext())
+        layoutManager.orientation = LinearLayoutManager.VERTICAL
+        recyclerView.layoutManager = layoutManager
+        return view
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -88,6 +103,16 @@ class MainHomeFragment : Fragment() {
             args.putString(ARG_PARAM2, param2)
             fragment.arguments = args
             return fragment
+        }
+    }
+
+    internal inner class HorizontalSpaceItemDecorator(val spacer: Int) : RecyclerView.ItemDecoration() {
+
+        override  fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
+            super.getItemOffsets(outRect, view, parent, state)
+            outRect.top = spacer
+            outRect.left = spacer/2
+            outRect.right = spacer/2
         }
     }
 }// Required empty public constructor

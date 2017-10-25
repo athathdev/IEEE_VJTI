@@ -5,22 +5,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.vjti.ieee.ieee_vjti.Activities.MainActivity
-import com.vjti.ieee.ieee_vjti.Holders.Card_Event_View_Holder
-import com.vjti.ieee.ieee_vjti.Model.Event_Card_Info_Collector
+import com.vjti.ieee.ieee_vjti.Holders.Card_Project_View_Holder
+import com.vjti.ieee.ieee_vjti.Model.Project_Card_Info_Collector
 import com.vjti.ieee.ieee_vjti.R
 
-
 /**
- * Created by mandar on 24-10-2017.
+ * Created by mandar on 25-10-2017.
  */
-class Event_Adapters (stations: ArrayList<Event_Card_Info_Collector>): RecyclerView.Adapter<Card_Event_View_Holder>() {
-    private var stations: ArrayList<Event_Card_Info_Collector>? = null
+class Project_Adapter (stations: ArrayList<Project_Card_Info_Collector>): RecyclerView.Adapter<Card_Project_View_Holder>() {
+    private var stations: ArrayList<Project_Card_Info_Collector>? = null
 
     init {
         this.stations = stations
     }
 
-    override fun onBindViewHolder(holder: Card_Event_View_Holder, position: Int) {
+    override fun onBindViewHolder(holder: Card_Project_View_Holder, position: Int) {
         val station = stations!![position]
         holder.updateUI(station)
 
@@ -38,10 +37,10 @@ class Event_Adapters (stations: ArrayList<Event_Card_Info_Collector>): RecyclerV
         return stations!!.size
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Card_Event_View_Holder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Card_Project_View_Holder {
 
-        val stationCard = LayoutInflater.from(parent.context).inflate(R.layout.card_4_events, parent, false)
-        return Card_Event_View_Holder(stationCard)
+        val stationCard = LayoutInflater.from(parent.context).inflate(R.layout.card_4_projects, parent, false)
+        return Card_Project_View_Holder(stationCard)
     }
 
 }
