@@ -2,11 +2,90 @@ package com.vjti.ieee.ieee_vjti.Activities
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.design.widget.TextInputLayout
+import android.text.TextUtils
+import android.view.View
+import android.view.WindowManager
+import android.widget.Button
+import android.widget.EditText
+import com.vjti.ieee.ieee_vjti.R
 
 class ContactUsActivity : AppCompatActivity() {
+
+    var inputName: EditText? = null
+    var inputEmail: EditText? = null
+    var inputSubject: EditText? = null
+    var inputMessage: EditText? = null
+    var inputLayoutName: TextInputLayout? = null
+    var inputLayoutEmail: TextInputLayout? = null
+    var inputLayoutSubject: TextInputLayout? = null
+    var inputLayoutMessage: TextInputLayout? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_contact_us)
+
+        inputName = findViewById<EditText>(R.id.input_name) as EditText
+        inputEmail = findViewById<EditText>(R.id.input_email) as EditText
+        inputSubject = findViewById<EditText>(R.id.input_subject) as EditText
+        inputMessage = findViewById<EditText>(R.id.input_message) as EditText
+        inputLayoutName = findViewById<TextInputLayout>(R.id.name_layout) as TextInputLayout
+        inputLayoutEmail = findViewById<TextInputLayout>(R.id.email_layout) as TextInputLayout
+        inputLayoutSubject = findViewById<TextInputLayout>(R.id.subject_layout) as TextInputLayout
+        inputLayoutMessage = findViewById<TextInputLayout>(R.id.message_layout) as TextInputLayout
+        val submitButton : Button = findViewById(R.id.submitButton)
+    }
+
+    public fun sendMessage(viwe : View) {
+        if(!validateName()) return
+        if(!validateEmail()) return
+        if(!validateSubject()) return
+        if(!validateMesage()) return
+        //code to send data to server
+    }
+
+    private fun validateMesage(): Boolean {
+        if(inputMessage!!.text.toString().trim().isEmpty()){
+            inputLayoutMessage!!.error = "Message cannot be left blank"
+            requestFocus(inputMessage!!)
+            return false
+        }
+        return true
+    }
+
+    private fun validateSubject(): Boolean {
+        if(inputSubject!!.text.toString().trim().isEmpty()){
+            inputLayoutSubject!!.error = "Subject cannot be left blank"
+            requestFocus(inputSubject!!)
+            return false
+        }
+        return true
+    }
+
+    private fun validateEmail(): Boolean {
+        val email = inputEmail!!.text.toString().trim()
+        if(email.isEmpty() || !isValidEmail(email)){
+            inputLayoutEmail!!.error = "Email Id field cannot be left blank"
+            requestFocus(inputEmail!!)
+            return false
+        }
+        return true
+    }
+
+    private fun isValidEmail(email: String): Boolean = !TextUtils.isEmpty(email) && android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
+
+    private fun validateName(): Boolean{
+        if(inputName!!.text.toString().trim().isEmpty()){
+            inputLayoutName!!.error = "Name field cannot be left blank"
+            requestFocus(inputName!!)
+            return false
+        }
+        return true
+    }
+
+    private fun requestFocus(view : View) {
+        if(view.requestFocus()){
+            window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE)
+        }
     }
 }
