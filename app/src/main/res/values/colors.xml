@@ -4,4 +4,6 @@
     <color name="colorPrimaryDark">#a4a4a4</color>
     <color name="colorAccent">#000000</color>
     <color name="grey_ivory5">#676d6e</color>
+    <color name="silver">#bdff0000</color>
+    <color name="bnv_tab_item_foreground">#3193a4</color>
 </resources>

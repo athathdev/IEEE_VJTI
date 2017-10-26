@@ -5,9 +5,8 @@ import android.graphics.Rect
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.support.v7.widget.StaggeredGridLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -44,12 +43,11 @@ class MainProjectFragment : Fragment() {
         val view = inflater!!.inflate(R.layout.fragment_main_project, container, false)
         val recyclerView = view.findViewById<RecyclerView>(R.id.content_project_recycler)
         recyclerView.setHasFixedSize(true)
-        recyclerView.addItemDecoration(HorizontalSpaceItemDecorator(20))
+        recyclerView.addItemDecoration(HorizontalSpaceItemDecorator(50))
         var projectdata : ProjectDataService = ProjectDataService().getInstance()
         val project_adapter = Project_Adapter(projectdata.getFeaturedStations())
         recyclerView.adapter = project_adapter
-        val layoutManager = GridLayoutManager(getContext(),2)
-        layoutManager.orientation = LinearLayoutManager.VERTICAL
+        val layoutManager = StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)
         recyclerView.layoutManager = layoutManager
         return view
     }

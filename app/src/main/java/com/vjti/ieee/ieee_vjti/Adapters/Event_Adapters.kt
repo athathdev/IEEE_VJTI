@@ -22,6 +22,7 @@ class Event_Adapters (stations: ArrayList<Event_Card_Info_Collector>): RecyclerV
 
     override fun onBindViewHolder(holder: Card_Event_View_Holder, position: Int) {
         val station = stations!![position]
+
         holder.updateUI(station)
 
         holder.itemView.setOnClickListener(object : View.OnClickListener {

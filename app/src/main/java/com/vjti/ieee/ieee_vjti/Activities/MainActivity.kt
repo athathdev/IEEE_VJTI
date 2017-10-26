@@ -5,13 +5,14 @@ import android.net.Uri
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.design.widget.NavigationView
-import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.view.MotionEvent
+import android.widget.Toast
 import com.vjti.ieee.ieee_vjti.Fragments.DetailsFragment
 import com.vjti.ieee.ieee_vjti.Fragments.MainEventFragment
 import com.vjti.ieee.ieee_vjti.Fragments.MainHomeFragment
@@ -25,6 +26,8 @@ import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.content_main.*
 
 
+
+
 class MainActivity : AppCompatActivity()
         ,NavigationView.OnNavigationItemSelectedListener
         ,BottomNavigationView.OnNavigationItemSelectedListener
@@ -32,6 +35,10 @@ class MainActivity : AppCompatActivity()
         ,MainEventFragment.OnMainEventFragmentInteractionListener
         ,MainProjectFragment.OnMainProjectFragmentInteractionListener
         ,DetailsFragment.OnDetailsFragmentInteractionListener{
+
+    private var x1: Float = 0.toFloat()
+    private var x2: Float = 0.toFloat()
+    val MIN_DISTANCE = 150
 
     override fun onDetailsFragmentInteraction(uri: Uri) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
@@ -48,6 +55,8 @@ class MainActivity : AppCompatActivity()
     override fun onMainProjectFragmentInteraction(uri: Uri) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -91,6 +100,7 @@ class MainActivity : AppCompatActivity()
     fun setLayout(){
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
+
 
         fab.setOnClickListener { view ->
             /*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
@@ -183,6 +193,22 @@ class MainActivity : AppCompatActivity()
                 .replace(R.id.fragment_container,DetailsFragment())
                 .addToBackStack(null)
                 .commit()
+    }
+
+    override fun onTouchEvent(event: MotionEvent): Boolean {
+        when (event.action) {
+            MotionEvent.ACTION_DOWN -> x1 = event.x
+            MotionEvent.ACTION_UP -> {
+                x2 = event.x
+                val deltaX = x2 - x1
+                if (Math.abs(deltaX) > 0) {
+                    Toast.makeText(this, "left2right swipe", Toast.LENGTH_SHORT).show()
+                } else {
+                    // consider as something else - a screen tap for example
+                }
+            }
+        }
+        return super.onTouchEvent(event)
     }
 
 

@@ -36,7 +36,7 @@ class MainHomeFragment : Fragment() {
         val view = inflater!!.inflate(R.layout.fragment_main_home, container, false)
         val recyclerView = view.findViewById<RecyclerView>(R.id.content_home_recycler)
         recyclerView.setHasFixedSize(true)
-        recyclerView.addItemDecoration(HorizontalSpaceItemDecorator(20))
+        recyclerView.addItemDecoration(HorizontalSpaceItemDecorator(50))
         var homedata : HomeDataService = HomeDataService().getInstance()
         val home_adapter = Home_Adapter(homedata.getFeaturedStations())
         recyclerView.adapter = home_adapter
