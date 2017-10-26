@@ -43,7 +43,7 @@ class MainProjectFragment : Fragment() {
         val view = inflater!!.inflate(R.layout.fragment_main_project, container, false)
         val recyclerView = view.findViewById<RecyclerView>(R.id.content_project_recycler)
         recyclerView.setHasFixedSize(true)
-        recyclerView.addItemDecoration(HorizontalSpaceItemDecorator(50))
+        recyclerView.addItemDecoration(HorizontalSpaceItemDecorator(40))
         var projectdata : ProjectDataService = ProjectDataService().getInstance()
         val project_adapter = Project_Adapter(projectdata.getFeaturedStations())
         recyclerView.adapter = project_adapter
