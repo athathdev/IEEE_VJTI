@@ -5,5 +5,5 @@
     android:background="#00000000"
     tools:context="com.vjti.ieee.ieee_vjti.Fragments.MainEventFragment">
 
-    <include layout="@layout/content_event_recycler" />
+    <include layout="@layout/content_recycler_event_super" />
 </FrameLayout>

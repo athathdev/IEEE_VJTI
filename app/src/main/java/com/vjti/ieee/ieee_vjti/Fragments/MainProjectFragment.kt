@@ -5,14 +5,14 @@ import android.graphics.Rect
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.StaggeredGridLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.vjti.ieee.ieee_vjti.Adapters.Project_Adapter
+import com.vjti.ieee.ieee_vjti.Adapters.Super_Project_Adapter
 import com.vjti.ieee.ieee_vjti.R
-import com.vjti.ieee.ieee_vjti.Services.ProjectDataService
+import com.vjti.ieee.ieee_vjti.Services.SuperProjectDataService
 
 /**
  * A simple [Fragment] subclass.
@@ -41,14 +41,16 @@ class MainProjectFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val view = inflater!!.inflate(R.layout.fragment_main_project, container, false)
-        val recyclerView = view.findViewById<RecyclerView>(R.id.content_project_recycler)
+        val recyclerView = view.findViewById<RecyclerView>(R.id.content_project_recycler_super)
         recyclerView.setHasFixedSize(true)
         recyclerView.addItemDecoration(HorizontalSpaceItemDecorator(40))
-        var projectdata : ProjectDataService = ProjectDataService().getInstance()
-        val project_adapter = Project_Adapter(projectdata.getFeaturedStations())
+        var projectdata : SuperProjectDataService = SuperProjectDataService().getInstance()
+        val project_adapter = Super_Project_Adapter(projectdata.getFeaturedCategories())
         recyclerView.adapter = project_adapter
-        val layoutManager = StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)
+        val layoutManager = LinearLayoutManager(context)
+        layoutManager.orientation = LinearLayoutManager.VERTICAL
         recyclerView.layoutManager = layoutManager
+
         return view
     }
 

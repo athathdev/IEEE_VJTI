@@ -3,7 +3,7 @@
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/card_station"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center_horizontal"
     android:background="#00000000">
@@ -11,13 +11,13 @@
 
     <LinearLayout
         android:id="@+id/linearLayout4"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
         android:layout_gravity="center"
         android:background="@drawable/rounded_corners"
         android:backgroundTint="#e5e5e5"
         android:foregroundGravity="center_vertical"
-        android:gravity="center"
+        android:gravity="top"
         android:orientation="vertical"
         card_view:layout_constraintBottom_toBottomOf="parent"
         card_view:layout_constraintEnd_toStartOf="@+id/linearLayout3"
@@ -28,44 +28,52 @@
         <TextView
             android:id="@+id/project_title"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_gravity="center"
             android:layout_margin="5dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:foregroundGravity="center_vertical"
-            android:gravity="center"
+            android:gravity="top"
             android:text="Android"
             android:textAlignment="center"
             android:textColor="@color/colorAccent"
             android:textSize="15dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"/>
 
         <ImageView
             android:id="@+id/project_image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
             android:layout_gravity="center_horizontal"
-            android:layout_margin="5dp"
-            android:layout_marginTop="10dp"
             android:background="#00000000"
             android:foregroundGravity="center"
-            android:src="@mipmap/ic_launcher_round" />
+            android:src="@mipmap/ic_launcher_round"/>
+
+        <TextView
+            android:id="@+id/chip_project"
+            android:layout_margin="4dp"
+            android:layout_gravity="start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/chip_test"
+            android:text="Arduino"
+            android:textColor="@android:color/white"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/project_discription"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_height="match_parent"
             android:layout_margin="5dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:foregroundGravity="center_vertical"
-            android:gravity="center"
             android:text="Android"
-            android:textAlignment="center"
+            android:textAlignment="viewStart"
             android:textColor="@color/colorAccent"
             android:textSize="15dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"  />
     </LinearLayout>
 </android.support.v7.widget.CardView>

@@ -5,14 +5,14 @@ import android.graphics.Rect
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.StaggeredGridLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.vjti.ieee.ieee_vjti.Adapters.Event_Adapters
+import com.vjti.ieee.ieee_vjti.Adapters.Super_Event_Adapter
 import com.vjti.ieee.ieee_vjti.R
-import com.vjti.ieee.ieee_vjti.Services.EventDataService
+import com.vjti.ieee.ieee_vjti.Services.SuperEventDataService
 
 
 /**
@@ -43,13 +43,14 @@ class MainEventFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val view = inflater!!.inflate(R.layout.fragment_main_event, container, false)
-        val recyclerView = view.findViewById<RecyclerView>(R.id.content_event_recycler)
+        val recyclerView = view.findViewById<RecyclerView>(R.id.content_event_recycler_super)
         recyclerView.setHasFixedSize(true)
         recyclerView.addItemDecoration(HorizontalSpaceItemDecorator(40))
-        var eventdata : EventDataService = EventDataService().getInstance()
-        val event_adapter = Event_Adapters(eventdata.getFeaturedStations())
+        var eventdata : SuperEventDataService = SuperEventDataService().getInstance()
+        val event_adapter = Super_Event_Adapter(eventdata.getFeaturedCategories())
         recyclerView.adapter = event_adapter
-        val layoutManager = StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)
+        val layoutManager = LinearLayoutManager(context)
+        layoutManager.orientation = LinearLayoutManager.VERTICAL
         recyclerView.layoutManager = layoutManager
 
         return view

@@ -4,6 +4,6 @@
     android:layout_height="match_parent"
     tools:context="com.vjti.ieee.ieee_vjti.Fragments.MainProjectFragment">
 
-    <include layout="@layout/content_project_recycler"
+    <include layout="@layout/content_recycler_project_super"
         />
 </FrameLayout>
