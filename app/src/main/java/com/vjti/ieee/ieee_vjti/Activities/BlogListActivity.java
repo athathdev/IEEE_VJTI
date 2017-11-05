@@ -18,6 +18,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -48,11 +49,11 @@ public class BlogListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_blog_list);
         new BackgroundFunctions().execute();
 
-        final Toolbar tToolbar = (Toolbar) findViewById(R.id.tToolbar);
+        /*final Toolbar tToolbar = (Toolbar) findViewById(R.id.tToolbar);
         setSupportActionBar(tToolbar);
-        getSupportActionBar().setTitle(R.string.app_name);
-        if (!calledAlready)
-        {
+        getSupportActionBar().setTitle(R.string.app_name);*/
+        if (!calledAlready) {
+            FirebaseApp.initializeApp(this);
             FirebaseDatabase.getInstance().setPersistenceEnabled(true);
             calledAlready = true;
         }

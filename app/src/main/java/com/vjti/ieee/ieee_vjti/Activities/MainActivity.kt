@@ -126,16 +126,23 @@ class MainActivity : AppCompatActivity()
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
         when (item.itemId) {
-            R.id.nav_camera -> {
+            R.id.home -> {
                 // Handle the camera action
             }
-            R.id.nav_gallery -> {
+            R.id.about -> {
 
             }
-            R.id.nav_slideshow -> {
+            R.id.blogs -> {
+                val intent  = Intent(this, BlogListActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.events -> {
 
             }
-            R.id.nav_manage -> {
+            R.id.library -> {
+
+            }
+            R.id.projects -> {
 
             }
             R.id.nav_share -> {
