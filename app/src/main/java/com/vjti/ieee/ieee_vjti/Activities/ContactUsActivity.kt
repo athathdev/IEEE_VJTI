@@ -49,6 +49,8 @@ class ContactUsActivity : AppCompatActivity() {
             inputLayoutMessage!!.error = "Message cannot be left blank"
             requestFocus(inputMessage!!)
             return false
+        }else{
+            inputLayoutMessage!!.setErrorEnabled(false)
         }
         return true
     }
@@ -58,16 +60,27 @@ class ContactUsActivity : AppCompatActivity() {
             inputLayoutSubject!!.error = "Subject cannot be left blank"
             requestFocus(inputSubject!!)
             return false
+        }else{
+            inputLayoutSubject!!.setErrorEnabled(false)
         }
         return true
     }
 
     private fun validateEmail(): Boolean {
         val email = inputEmail!!.text.toString().trim()
-        if(email.isEmpty() || !isValidEmail(email)){
+        if(email.isEmpty()){
             inputLayoutEmail!!.error = "Email Id field cannot be left blank"
             requestFocus(inputEmail!!)
             return false
+        }else{
+            inputLayoutEmail!!.setErrorEnabled(false)
+        }
+        if(!isValidEmail(email)){
+            inputLayoutEmail!!.error = "Email Id is incorrect"
+            requestFocus(inputEmail!!)
+            return false
+        }else{
+            inputLayoutEmail!!.setErrorEnabled(false)
         }
         return true
     }
@@ -79,6 +92,8 @@ class ContactUsActivity : AppCompatActivity() {
             inputLayoutName!!.error = "Name field cannot be left blank"
             requestFocus(inputName!!)
             return false
+        }else{
+            inputLayoutName!!.setErrorEnabled(false)
         }
         return true
     }

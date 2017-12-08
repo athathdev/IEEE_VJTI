@@ -9,6 +9,7 @@ import android.support.v4.app.Fragment
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
+import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.MotionEvent
@@ -121,23 +122,34 @@ class MainActivity : AppCompatActivity()
 
     }
 
-
-
-
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
         when (item.itemId) {
-            R.id.nav_camera -> {
+            R.id.home -> {
                 // Handle the camera action
+                drawer_layout.closeDrawer(GravityCompat.START)
+                val manager = supportFragmentManager
+                manager.beginTransaction().replace(R.id.fragment_container,MainHomeFragment()).addToBackStack(null).commit()
             }
-            R.id.nav_gallery -> {
+            R.id.about -> {
 
             }
-            R.id.nav_slideshow -> {
+            R.id.blogs -> {
+                val intent  = Intent(this, BlogListActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.events -> {
+                drawer_layout.closeDrawer(GravityCompat.START)
+                val manager = supportFragmentManager
+                manager.beginTransaction().replace(R.id.fragment_container,MainEventFragment()).addToBackStack(null).commit()
+            }
+            R.id.library -> {
 
             }
-            R.id.nav_manage -> {
-
+            R.id.projects -> {
+                drawer_layout.closeDrawer(GravityCompat.START)
+                val manager = supportFragmentManager
+                manager.beginTransaction().replace(R.id.fragment_container,MainProjectFragment()).addToBackStack(null).commit()
             }
             R.id.nav_share -> {
 
@@ -156,7 +168,6 @@ class MainActivity : AppCompatActivity()
             R.id.menu_projects -> {
                 val manager = supportFragmentManager
                 manager.beginTransaction().replace(R.id.fragment_container,MainProjectFragment()).addToBackStack(null).commit()
-
             }
         }
 
@@ -219,7 +230,4 @@ class MainActivity : AppCompatActivity()
         }
         return super.onTouchEvent(event)
     }
-
-
-
 }
