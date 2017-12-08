@@ -38,7 +38,7 @@ class SettingsActivity : AppCompatPreferenceActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        onBackPressed()
+        startActivity(Intent(this, MainActivity::class.java))
         return super.onOptionsItemSelected(item)
     }
 
