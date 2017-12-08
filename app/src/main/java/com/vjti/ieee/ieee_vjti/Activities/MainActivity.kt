@@ -149,7 +149,15 @@ class MainActivity : AppCompatActivity()
                 manager.beginTransaction().replace(R.id.fragment_container,MainProjectFragment()).addToBackStack(null).commit()
             }
             R.id.nav_share -> {
-
+                try {
+                    val shareAppIntent = Intent(android.content.Intent.ACTION_SEND)
+                    shareAppIntent.setType("text/plain")
+                    shareAppIntent.putExtra(Intent.EXTRA_SUBJECT, "\nThe official IEEE VJTI android app")
+                    shareAppIntent.putExtra(Intent.EXTRA_TEXT, "link of the app")
+                    startActivity(Intent.createChooser(shareAppIntent, "Share via"))
+                }catch (e : Exception){
+                    Toast.makeText(this, "Could not share app", Toast.LENGTH_LONG).show()
+                }
             }
             R.id.nav_send -> {
 
