@@ -1,5 +1,6 @@
 package com.vjti.ieee.ieee_vjti.Activities
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.TextInputLayout
@@ -8,6 +9,7 @@ import android.view.View
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import com.vjti.ieee.ieee_vjti.R
 
 class ContactUsActivity : AppCompatActivity() {
@@ -41,7 +43,22 @@ class ContactUsActivity : AppCompatActivity() {
         if(!validateEmail()) return
         if(!validateSubject()) return
         if(!validateMesage()) return
-        //code to send data to server
+        //code to send data to email ids
+        //1)harsh.kokane13@gmail.com
+        //2)shivani.a.972@gmail.com
+        val name = inputName!!.text.toString()
+        val subject = inputSubject!!.text.toString() + "(sent from app)"
+        val message = "Name of sender : " + name + "\n" + inputMessage!!.text.toString()
+        val emailIntent = Intent(Intent.ACTION_SEND)
+        try {
+            emailIntent.putExtra(Intent.EXTRA_EMAIL, arrayOf("harsh.kokane13@gmail.com", "shivani.a.972@gmail.com"))
+            emailIntent.putExtra(Intent.EXTRA_SUBJECT, subject)
+            emailIntent.putExtra(Intent.EXTRA_TEXT, message)
+            emailIntent.setType("message/rfc822")
+            startActivity(Intent.createChooser(emailIntent, "Choose an Email client"))
+        }catch (e : Exception){
+            Toast.makeText(this, "Failed to send mail", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private fun validateMesage(): Boolean {

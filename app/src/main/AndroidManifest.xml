@@ -25,7 +25,10 @@
         <activity
             android:name=".Activities.SettingsActivity"
             android:label="@string/title_activity_settings" />
-        <activity android:name=".Activities.ContactUsActivity" />
+        <activity
+            android:name=".Activities.ContactUsActivity"
+            android:label="Contact Us"
+            />
         <activity android:name=".Activities.BlogListActivity"></activity>
     </application>
 
