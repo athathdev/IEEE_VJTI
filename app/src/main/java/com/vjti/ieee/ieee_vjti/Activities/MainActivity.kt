@@ -166,7 +166,7 @@ class MainActivity : AppCompatActivity()
 
     companion object {
         var mainActivity: MainActivity? = null
-
+        var spacer: Int = 30
 
     }
 

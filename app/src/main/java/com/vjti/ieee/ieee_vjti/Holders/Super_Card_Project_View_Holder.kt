@@ -5,6 +5,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.TextView
+import com.vjti.ieee.ieee_vjti.Activities.MainActivity
 import com.vjti.ieee.ieee_vjti.Adapters.Project_Adapter
 import com.vjti.ieee.ieee_vjti.Model.Super_Project_Card_Info_Collector
 import com.vjti.ieee.ieee_vjti.R
@@ -27,7 +28,7 @@ class Super_Card_Project_View_Holder (itemView: View) : RecyclerView.ViewHolder(
     fun updateUI(station: Super_Project_Card_Info_Collector) {
         this.Category?.setText(station.getCategory().toString())
         recyclerView?.setHasFixedSize(true)
-        recyclerView?.addItemDecoration(HorizontalSpaceItemDecorator(40))
+        recyclerView?.addItemDecoration(HorizontalSpaceItemDecorator(MainActivity.spacer))
         var eventdata : ProjectDataService = ProjectDataService().getInstance()
         val event_adapter = Project_Adapter(eventdata.getFeaturedStations())
         recyclerView?.adapter = event_adapter
@@ -40,7 +41,6 @@ class Super_Card_Project_View_Holder (itemView: View) : RecyclerView.ViewHolder(
 
         override  fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
             super.getItemOffsets(outRect, view, parent, state)
-            outRect.top = spacer
             outRect.left = spacer/2
             outRect.right = spacer/2
         }
