@@ -129,7 +129,10 @@ class MainActivity : AppCompatActivity()
                 manager.beginTransaction().replace(R.id.fragment_container,MainHomeFragment()).addToBackStack(null).commit()
             }
             R.id.about -> {
-
+                val url = "http://www.ieeevjti.com/team.html#team"
+                val intent = Intent(Intent.ACTION_VIEW)
+                intent.setData(Uri.parse(url))
+                startActivity(intent)
             }
             R.id.blogs -> {
                 val intent  = Intent(this, BlogListActivity::class.java)
@@ -160,7 +163,8 @@ class MainActivity : AppCompatActivity()
                 }
             }
             R.id.nav_send -> {
-
+                val intent  = Intent(this, ContactUsActivity::class.java)
+                startActivity(intent)
             }
             R.id.menu_home -> {
                 val manager = supportFragmentManager

@@ -1,6 +1,7 @@
 package com.vjti.ieee.ieee_vjti.Activities
 
 import android.content.Intent
+import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.TextInputLayout
@@ -51,13 +52,13 @@ class ContactUsActivity : AppCompatActivity() {
         val name = inputName!!.text.toString()
         val subject = inputSubject!!.text.toString() + "(sent from app)"
         val message = "Name of sender : " + name + "\n" + inputMessage!!.text.toString()
-        val emailIntent = Intent(Intent.ACTION_SEND)
+        val emailIntent = Intent(Intent.ACTION_SENDTO)
         try {
+            emailIntent.setData(Uri.parse("mailto:"))
             emailIntent.putExtra(Intent.EXTRA_EMAIL, arrayOf("harsh.kokane13@gmail.com", "shivani.a.972@gmail.com"))
             emailIntent.putExtra(Intent.EXTRA_SUBJECT, subject)
             emailIntent.putExtra(Intent.EXTRA_TEXT, message)
-            emailIntent.setType("message/rfc822")
-            startActivity(Intent.createChooser(emailIntent, "Choose an Email client"))
+            startActivity(Intent.createChooser(emailIntent, "Choose an Email app"))
         }catch (e : Exception){
             Toast.makeText(this, "Failed to send Email", Toast.LENGTH_SHORT).show();
         }
