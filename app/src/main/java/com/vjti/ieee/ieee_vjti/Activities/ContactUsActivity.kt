@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.TextInputLayout
 import android.text.TextUtils
+import android.view.MenuItem
 import android.view.View
 import android.view.WindowManager
 import android.widget.Button
@@ -25,6 +26,7 @@ class ContactUsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         setContentView(R.layout.activity_contact_us)
 
         inputName = findViewById<EditText>(R.id.input_name) as EditText
@@ -57,7 +59,7 @@ class ContactUsActivity : AppCompatActivity() {
             emailIntent.setType("message/rfc822")
             startActivity(Intent.createChooser(emailIntent, "Choose an Email client"))
         }catch (e : Exception){
-            Toast.makeText(this, "Failed to send mail", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Failed to send Email", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -119,5 +121,10 @@ class ContactUsActivity : AppCompatActivity() {
         if(view.requestFocus()){
             window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE)
         }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        onBackPressed()
+        return super.onOptionsItemSelected(item)
     }
 }
