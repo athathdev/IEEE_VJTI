@@ -3,21 +3,24 @@
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/card_station"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center_horizontal"
-    android:background="#00000000">
+    android:animateLayoutChanges="true"
+    android:background="@color/bnv_tab_item_foreground"
+    android:elevation="4dp"
+    card_view:cardElevation="4dp">
 
 
     <LinearLayout
         android:id="@+id/linearLayout4"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
         android:layout_gravity="center"
         android:background="@drawable/rounded_corners"
         android:backgroundTint="#e5e5e5"
         android:foregroundGravity="center_vertical"
-        android:gravity="center"
+        android:gravity="top"
         android:orientation="vertical"
         card_view:layout_constraintBottom_toBottomOf="parent"
         card_view:layout_constraintEnd_toStartOf="@+id/linearLayout3"
@@ -28,7 +31,7 @@
         <TextView
             android:id="@+id/event_title"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_gravity="center"
             android:layout_margin="5dp"
             android:layout_marginLeft="5dp"
@@ -43,27 +46,36 @@
 
         <ImageView
             android:id="@+id/event_image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
             android:layout_gravity="center_horizontal"
-            android:layout_margin="5dp"
-            android:layout_marginTop="10dp"
             android:background="#00000000"
             android:foregroundGravity="center"
             android:src="@mipmap/ic_launcher_round" />
 
         <TextView
+            android:id="@+id/chip_event"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="start"
+            android:layout_margin="4dp"
+            android:background="@drawable/chip_test"
+            android:text="Arduino"
+            android:textColor="@android:color/white"
+            android:textStyle="bold" />
+
+
+        <TextView
             android:id="@+id/event_discription"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_height="match_parent"
             android:layout_margin="5dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:foregroundGravity="center_vertical"
-            android:gravity="center"
             android:text="Android"
-            android:textAlignment="center"
+            android:textAlignment="viewStart"
             android:textColor="@color/colorAccent"
             android:textSize="15dp"
             android:textStyle="bold" />

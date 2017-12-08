@@ -21,6 +21,7 @@ import com.vjti.ieee.ieee_vjti.Fragments.MainProjectFragment
 import com.vjti.ieee.ieee_vjti.Model.Event_Card_Info_Collector
 import com.vjti.ieee.ieee_vjti.Model.Home_Card_Info_Collector
 import com.vjti.ieee.ieee_vjti.Model.Project_Card_Info_Collector
+import com.vjti.ieee.ieee_vjti.Model.Super_Event_Card_Info_Collector
 import com.vjti.ieee.ieee_vjti.R
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
@@ -173,7 +174,7 @@ class MainActivity : AppCompatActivity()
 
     companion object {
         var mainActivity: MainActivity? = null
-
+        var spacer: Int = 30
 
     }
 
@@ -195,6 +196,14 @@ class MainActivity : AppCompatActivity()
                 .commit()
     }
     fun loadDetailsScreen(selectedStation: Project_Card_Info_Collector) {
+        var manager = supportFragmentManager
+
+        manager.beginTransaction()
+                .replace(R.id.fragment_container,DetailsFragment())
+                .addToBackStack(null)
+                .commit()
+    }
+    fun loadDetailsScreen(selectedStation: Super_Event_Card_Info_Collector) {
         var manager = supportFragmentManager
 
         manager.beginTransaction()

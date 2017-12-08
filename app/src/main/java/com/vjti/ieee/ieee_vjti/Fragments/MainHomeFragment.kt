@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.vjti.ieee.ieee_vjti.Activities.MainActivity
 import com.vjti.ieee.ieee_vjti.Adapters.Home_Adapter
 import com.vjti.ieee.ieee_vjti.R
 import com.vjti.ieee.ieee_vjti.Services.HomeDataService
@@ -36,7 +37,7 @@ class MainHomeFragment : Fragment() {
         val view = inflater!!.inflate(R.layout.fragment_main_home, container, false)
         val recyclerView = view.findViewById<RecyclerView>(R.id.content_home_recycler)
         recyclerView.setHasFixedSize(true)
-        recyclerView.addItemDecoration(HorizontalSpaceItemDecorator(40))
+        recyclerView.addItemDecoration(HorizontalSpaceItemDecorator(MainActivity.spacer))
         var homedata : HomeDataService = HomeDataService().getInstance()
         val home_adapter = Home_Adapter(homedata.getFeaturedStations())
         recyclerView.adapter = home_adapter
@@ -110,9 +111,10 @@ class MainHomeFragment : Fragment() {
 
         override  fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
             super.getItemOffsets(outRect, view, parent, state)
-            outRect.top = spacer
-            outRect.left = spacer/2
-            outRect.right = spacer/2
+            outRect.top = spacer/2
+            outRect.bottom = spacer/2
+            outRect.left = spacer
+            outRect.right = spacer
         }
     }
 }// Required empty public constructor
