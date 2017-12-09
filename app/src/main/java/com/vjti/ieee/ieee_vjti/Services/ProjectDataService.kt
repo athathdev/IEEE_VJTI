@@ -27,7 +27,7 @@ class ProjectDataService {
 //
 //        val list = ArrayList<Project_Card_Info_Collector>()
 //        if(stats == 0) {
-//            list.add(Project_Card_Info_Collector("Workshop", "manshdjkkflpwoirutykflpwoiru\ndcndnnvnjfnvjnnv", "drawable/bicyclemusic", array))
+//        MainActivity.ProjectCards?.add(Project_Card_Info_Collector("Workshop", "manshdjkkflpwoirutykflpwoiru\ndcndnnvnjfnvjnnv", "drawable/bicyclemusic"/*, array*/))
 //            list.add(Project_Card_Info_Collector("Workshop", "manshdjkkflpwoirutykflpwoiru\ndcndnnvnjfnvjnnv", "drawable/bicyclemusic", array))
 //            list.add(Project_Card_Info_Collector("Workshop", "manshdjkkflpwoirutykflpwoiru\ndcndnnvnjfnvjnnv", "drawable/bicyclemusic", array))
 //            list.add(Project_Card_Info_Collector("Workshop", "manshdjkkflpwoirutykflpwoiru\ndcndnnvnjfnvjnnv", "drawable/bicyclemusic", array))

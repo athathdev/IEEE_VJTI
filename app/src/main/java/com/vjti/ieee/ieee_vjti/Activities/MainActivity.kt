@@ -9,10 +9,12 @@ import android.support.v4.app.Fragment
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.MotionEvent
 import android.widget.Toast
+import com.google.firebase.database.*
 import com.vjti.ieee.ieee_vjti.Fragments.DetailsFragment
 import com.vjti.ieee.ieee_vjti.Fragments.MainEventFragment
 import com.vjti.ieee.ieee_vjti.Fragments.MainHomeFragment
@@ -38,6 +40,9 @@ class MainActivity : AppCompatActivity()
     private var x2: Float = 0.toFloat()
     val MIN_DISTANCE = 150
 
+    var firebaseDatabase : FirebaseDatabase? = null
+    var databaseReference : DatabaseReference? = null
+
     override fun onDetailsFragmentInteraction(uri: Uri) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
@@ -58,6 +63,21 @@ class MainActivity : AppCompatActivity()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        firebaseDatabase = FirebaseDatabase.getInstance()
+        databaseReference = firebaseDatabase!!.getReference().child("projects")
+        databaseReference!!.addValueEventListener(object : ValueEventListener{
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                val children = dataSnapshot!!.children
+                Log.i("Project list", children.toString())
+                for(project in children){
+                    ProjectCards!!.add(project.getValue(Project_Card_Info_Collector::class.java)!!)
+                }
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                println("loadPost:onCancelled ${databaseError.toException()}")
+            }
+        })
         setLayout()
         val manager = supportFragmentManager
         var fragment : Fragment? = manager.findFragmentById(R.id.fragment_container)
@@ -187,10 +207,9 @@ class MainActivity : AppCompatActivity()
         var mainActivity: MainActivity? = null
         var spacer: Int = 30
         @JvmStatic
-        var ProjectCards : ArrayList<Project_Card_Info_Collector>? = null
-        var EventCards : ArrayList<Event_Card_Info_Collector>? = null
-        var HomeCards : ArrayList<Home_Card_Info_Collector>? = null
-
+        var ProjectCards : ArrayList<Project_Card_Info_Collector>? = ArrayList()
+        var EventCards : ArrayList<Event_Card_Info_Collector>? = ArrayList()
+        var HomeCards : ArrayList<Home_Card_Info_Collector>? = ArrayList()
     }
 
 

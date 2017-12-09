@@ -24,6 +24,6 @@ class Card_Project_View_Holder (itemView: View) : RecyclerView.ViewHolder(itemVi
 //        var uri = station.getImage()
 //        val resource0 = Image?.getResources()?.getIdentifier(uri, null, Image?.getContext()?.getPackageName())
         Title?.setText(station.getTitle())
-        Discription?.setText(station.getTDiscription())
+        Discription?.setText(station.getText())
     }
 }
