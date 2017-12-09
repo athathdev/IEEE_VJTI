@@ -41,26 +41,26 @@
             android:textSize="15dp"
             android:textStyle="bold"/>
 
-        <ImageView
-            android:id="@+id/project_image"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_gravity="center_horizontal"
-            android:background="#00000000"
-            android:foregroundGravity="center"
-            android:src="@mipmap/ic_launcher_round"/>
+        <!--<ImageView-->
+            <!--android:id="@+id/project_image"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="80dp"-->
+            <!--android:layout_gravity="center_horizontal"-->
+            <!--android:background="#00000000"-->
+            <!--android:foregroundGravity="center"-->
+            <!--android:src="@mipmap/ic_launcher_round"/>-->
 
-        <TextView
-            android:id="@+id/chip_project"
-            android:layout_margin="4dp"
-            android:layout_gravity="start"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:background="@drawable/chip_test"
-            android:text="Arduino"
-            android:textColor="@android:color/white"
-            android:textStyle="bold" />
+        <!--<TextView-->
+            <!--android:id="@+id/chip_project"-->
+            <!--android:layout_margin="4dp"-->
+            <!--android:layout_gravity="start"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerInParent="true"-->
+            <!--android:background="@drawable/chip_test"-->
+            <!--android:text="Arduino"-->
+            <!--android:textColor="@android:color/white"-->
+            <!--android:textStyle="bold" />-->
 
         <TextView
             android:id="@+id/project_discription"

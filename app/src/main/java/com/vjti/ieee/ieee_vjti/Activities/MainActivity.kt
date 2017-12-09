@@ -9,7 +9,6 @@ import android.support.v4.app.Fragment
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
-import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.MotionEvent
@@ -187,6 +186,10 @@ class MainActivity : AppCompatActivity()
     companion object {
         var mainActivity: MainActivity? = null
         var spacer: Int = 30
+        @JvmStatic
+        var ProjectCards : ArrayList<Project_Card_Info_Collector>? = null
+        var EventCards : ArrayList<Event_Card_Info_Collector>? = null
+        var HomeCards : ArrayList<Home_Card_Info_Collector>? = null
 
     }
 

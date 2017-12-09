@@ -1,5 +1,6 @@
 package com.vjti.ieee.ieee_vjti.Services
 
+import com.vjti.ieee.ieee_vjti.Activities.MainActivity
 import com.vjti.ieee.ieee_vjti.Model.Project_Card_Info_Collector
 
 /**
@@ -21,19 +22,19 @@ class ProjectDataService {
 
     fun getFeaturedStations(stats:Int = 0): ArrayList<Project_Card_Info_Collector> {
         //Pretend we just downloaded featured stations from the Internet
-        var array : ArrayList<String> = ArrayList()
-        array.add("rasberry pie")
-
-        val list = ArrayList<Project_Card_Info_Collector>()
-        if(stats == 0) {
-            list.add(Project_Card_Info_Collector("Workshop", "manshdjkkflpwoirutykflpwoiru\ndcndnnvnjfnvjnnv", "drawable/bicyclemusic", array))
-            list.add(Project_Card_Info_Collector("Workshop", "manshdjkkflpwoirutykflpwoiru\ndcndnnvnjfnvjnnv", "drawable/bicyclemusic", array))
-            list.add(Project_Card_Info_Collector("Workshop", "manshdjkkflpwoirutykflpwoiru\ndcndnnvnjfnvjnnv", "drawable/bicyclemusic", array))
-            list.add(Project_Card_Info_Collector("Workshop", "manshdjkkflpwoirutykflpwoiru\ndcndnnvnjfnvjnnv", "drawable/bicyclemusic", array))
-            list.add(Project_Card_Info_Collector("Workshop", "manshdjkkflpwoirutykflpwoiru\ndcndnnvnjfnvjnnv", "drawable/bicyclemusic", array))
-            list.add(Project_Card_Info_Collector("Workshop", "manshdjkkflpwoirutykflpwoiru\ndcndnnvnjfnvjnnv", "drawable/bicyclemusic", array))
-            list.add(Project_Card_Info_Collector("Workshop", "manshdjkkflpwoirutykflpwoiru\ndcndnnvnjfnvjnnv", "drawable/bicyclemusic", array))
-        }
-        return list
+//        var array : ArrayList<String> = ArrayList()
+//        array.add("rasberry pie")
+//
+//        val list = ArrayList<Project_Card_Info_Collector>()
+//        if(stats == 0) {
+//            list.add(Project_Card_Info_Collector("Workshop", "manshdjkkflpwoirutykflpwoiru\ndcndnnvnjfnvjnnv", "drawable/bicyclemusic", array))
+//            list.add(Project_Card_Info_Collector("Workshop", "manshdjkkflpwoirutykflpwoiru\ndcndnnvnjfnvjnnv", "drawable/bicyclemusic", array))
+//            list.add(Project_Card_Info_Collector("Workshop", "manshdjkkflpwoirutykflpwoiru\ndcndnnvnjfnvjnnv", "drawable/bicyclemusic", array))
+//            list.add(Project_Card_Info_Collector("Workshop", "manshdjkkflpwoirutykflpwoiru\ndcndnnvnjfnvjnnv", "drawable/bicyclemusic", array))
+//            list.add(Project_Card_Info_Collector("Workshop", "manshdjkkflpwoirutykflpwoiru\ndcndnnvnjfnvjnnv", "drawable/bicyclemusic", array))
+//            list.add(Project_Card_Info_Collector("Workshop", "manshdjkkflpwoirutykflpwoiru\ndcndnnvnjfnvjnnv", "drawable/bicyclemusic", array))
+//            list.add(Project_Card_Info_Collector("Workshop", "manshdjkkflpwoirutykflpwoiru\ndcndnnvnjfnvjnnv", "drawable/bicyclemusic", array))
+//        }
+        return MainActivity.ProjectCards!!
     }
 }
