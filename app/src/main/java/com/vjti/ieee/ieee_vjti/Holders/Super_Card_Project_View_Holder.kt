@@ -33,7 +33,7 @@ class Super_Card_Project_View_Holder (itemView: View) : RecyclerView.ViewHolder(
         val event_adapter = Project_Adapter(eventdata.getFeaturedStations())
         recyclerView?.adapter = event_adapter
         val layoutManager = LinearLayoutManager(itemView.context)
-        layoutManager.orientation = LinearLayoutManager.HORIZONTAL
+        layoutManager.orientation = LinearLayoutManager.VERTICAL
         recyclerView?.layoutManager = layoutManager
     }
 
@@ -43,6 +43,8 @@ class Super_Card_Project_View_Holder (itemView: View) : RecyclerView.ViewHolder(
             super.getItemOffsets(outRect, view, parent, state)
             outRect.left = spacer/2
             outRect.right = spacer/2
+            outRect.top = spacer/2
+            outRect.bottom = spacer/2
         }
     }
 }

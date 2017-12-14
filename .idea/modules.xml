@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/IEEE_VJTI.iml" filepath="$PROJECT_DIR$/IEEE_VJTI.iml" />
+      <module fileurl="file://F:\Codes\codes\Android_Kotlin\ath_IEEE_App\IEEE_VJTI.iml" filepath="F:\Codes\codes\Android_Kotlin\ath_IEEE_App\IEEE_VJTI.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ath_IEEE_App.iml" filepath="$PROJECT_DIR$/ath_IEEE_App.iml" />
     </modules>
   </component>
 </project>

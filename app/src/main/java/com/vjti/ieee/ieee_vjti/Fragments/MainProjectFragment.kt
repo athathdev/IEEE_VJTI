@@ -51,7 +51,7 @@ class MainProjectFragment : Fragment() {
         val layoutManager = LinearLayoutManager(context)
         layoutManager.orientation = LinearLayoutManager.VERTICAL
         recyclerView.layoutManager = layoutManager
-
+        //MainActivity.mainActivity!!.actionBar.setTitle("PROJECTS")
         return view
     }
 

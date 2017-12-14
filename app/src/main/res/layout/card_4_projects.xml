@@ -3,7 +3,7 @@
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/card_station"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center_horizontal"
     android:background="#00000000">
@@ -11,8 +11,8 @@
 
     <LinearLayout
         android:id="@+id/linearLayout4"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
         android:layout_gravity="center"
         android:background="@drawable/rounded_corners"
         android:backgroundTint="#e5e5e5"
@@ -39,33 +39,12 @@
             android:textAlignment="center"
             android:textColor="@color/colorAccent"
             android:textSize="15dp"
-            android:textStyle="bold"/>
-
-        <!--<ImageView-->
-            <!--android:id="@+id/project_image"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="80dp"-->
-            <!--android:layout_gravity="center_horizontal"-->
-            <!--android:background="#00000000"-->
-            <!--android:foregroundGravity="center"-->
-            <!--android:src="@mipmap/ic_launcher_round"/>-->
-
-        <!--<TextView-->
-            <!--android:id="@+id/chip_project"-->
-            <!--android:layout_margin="4dp"-->
-            <!--android:layout_gravity="start"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_centerInParent="true"-->
-            <!--android:background="@drawable/chip_test"-->
-            <!--android:text="Arduino"-->
-            <!--android:textColor="@android:color/white"-->
-            <!--android:textStyle="bold" />-->
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/project_discription"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="80dp"
             android:layout_margin="5dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
@@ -74,6 +53,62 @@
             android:textAlignment="viewStart"
             android:textColor="@color/colorAccent"
             android:textSize="15dp"
-            android:textStyle="bold"  />
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="Members:" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/text01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/text02"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/text03"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/text04"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/text05"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/text06"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/text07"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="" />
+        </LinearLayout>
     </LinearLayout>
 </android.support.v7.widget.CardView>

@@ -44,6 +44,7 @@ class MainHomeFragment : Fragment() {
         val layoutManager = LinearLayoutManager(getContext())
         layoutManager.orientation = LinearLayoutManager.VERTICAL
         recyclerView.layoutManager = layoutManager
+        //MainActivity.mainActivity!!.actionBar.setTitle("HOME")
         return view
     }
 

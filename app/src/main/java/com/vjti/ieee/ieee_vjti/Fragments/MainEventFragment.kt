@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.vjti.ieee.ieee_vjti.Activities.AppCompatPreferenceActivity
 import com.vjti.ieee.ieee_vjti.Activities.MainActivity
 import com.vjti.ieee.ieee_vjti.Adapters.Super_Event_Adapter
 import com.vjti.ieee.ieee_vjti.R
@@ -53,7 +54,6 @@ class MainEventFragment : Fragment() {
         val layoutManager = LinearLayoutManager(context)
         layoutManager.orientation = LinearLayoutManager.VERTICAL
         recyclerView.layoutManager = layoutManager
-
         return view
     }
 

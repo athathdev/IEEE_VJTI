@@ -14,6 +14,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.MotionEvent
 import android.widget.Toast
+import android.widget.Toolbar
 import com.google.firebase.database.*
 import com.vjti.ieee.ieee_vjti.Fragments.DetailsFragment
 import com.vjti.ieee.ieee_vjti.Fragments.MainEventFragment
@@ -63,21 +64,7 @@ class MainActivity : AppCompatActivity()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        firebaseDatabase = FirebaseDatabase.getInstance()
-        databaseReference = firebaseDatabase!!.getReference().child("projects")
-        databaseReference!!.addValueEventListener(object : ValueEventListener{
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                val children = dataSnapshot!!.children
-                Log.i("Project list", children.toString())
-                for(project in children){
-                    ProjectCards!!.add(project.getValue(Project_Card_Info_Collector::class.java)!!)
-                }
-            }
-
-            override fun onCancelled(databaseError: DatabaseError) {
-                println("loadPost:onCancelled ${databaseError.toException()}")
-            }
-        })
+        MainActivity.ProjectCards?.add(Project_Card_Info_Collector("mandar sadye atharva abhyankar", "manshdjkkflpwoirutykflpwoiru\ndcndnnvnjfnvjnnv", "drawable/bicyclemusic"))
         setLayout()
         val manager = supportFragmentManager
         var fragment : Fragment? = manager.findFragmentById(R.id.fragment_container)
@@ -260,5 +247,9 @@ class MainActivity : AppCompatActivity()
             }
         }
         return super.onTouchEvent(event)
+    }
+
+    override fun setActionBar(toolbar: Toolbar?) {
+        super.setActionBar(toolbar)
     }
 }

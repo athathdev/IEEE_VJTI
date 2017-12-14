@@ -4,6 +4,7 @@ import android.content.res.Configuration
 import android.os.Bundle
 import android.preference.PreferenceActivity
 import android.support.annotation.LayoutRes
+import android.support.v4.app.ActivityCompat
 import android.support.v7.app.ActionBar
 import android.support.v7.app.AppCompatDelegate
 import android.support.v7.widget.Toolbar
@@ -86,5 +87,8 @@ abstract class AppCompatPreferenceActivity : PreferenceActivity() {
 
     private val delegate: AppCompatDelegate by lazy {
         AppCompatDelegate.create(this, null)
+    }
+    companion object {
+        var ActivityCompat : AppCompatPreferenceActivity? = null
     }
 }

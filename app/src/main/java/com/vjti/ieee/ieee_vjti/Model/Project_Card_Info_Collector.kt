@@ -1,48 +1,42 @@
 package com.vjti.ieee.ieee_vjti.Model
 
+import java.io.Serializable
+
 /**
  * Created by mandar on 25-10-2017.
  */
-class Project_Card_Info_Collector {
-    private var Title : String? = null
+class Project_Card_Info_Collector : Serializable {
+    private var title : String? = null
     private var text: String? = null
-    private var team : String? = null
-//    private var Image: String? = null
+    private var team : String?= null
+    private var members : ArrayList<String>? = null
+    //    private var Image: String? = null
 //    private var chips : ArrayList<String>? = null
+    init {
 
-    constructor(Title: String?, Discription: String?, team : String?/*Image: String?,chips:ArrayList<String>*/) {
-        this.Title = Title
-        this.text = Discription
+    }
+    constructor(team:String,text:String,title: String) {
         this.team = team
-//        this.Image = Image
-//        this.chips = chips
+        this.title = title
+        this.text = text
+        this.members = ArrayList()
+        var split: List<String> = team.split(" ")
+        var i = 0
+        while (i < split!!.size) {
+            this.members!!.add(" ${split[i]} ${split[i + 1]}")//for name and surname
+            i += 2
+        }
     }
 
-    constructor(){}
 
     fun getTitle():String{
-        return "${this.Title}"
+        return "${this.title}"
     }
-    fun getText():String{
+    fun getTDiscription():String{
         return "${this.text}"
     }
-    fun getTeam():String{
-        return "$(this.team)"
+    fun getmembers():ArrayList<String>?{
+        return this.members
     }
-    fun setTitle(title : String){
-        Title = title
-    }
-    fun setText(text : String){
-        this.text = text
-    }
-    fun setTeam(team : String){
-        this.team = team
-    }
-//    fun getImage():String{
-//        return "${this.Image}"
-//    }
-//    fun getChips():ArrayList<String>{
-//        return chips!!
-//    }
 
 }
