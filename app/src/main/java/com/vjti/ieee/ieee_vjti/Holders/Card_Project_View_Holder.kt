@@ -37,6 +37,7 @@ class Card_Project_View_Holder (itemView: View) : RecyclerView.ViewHolder(itemVi
         var i = 0
         var mem = station.getmembers()
         while(i<8){
+
             if(i<mem!!.size)
                 members!![i].text = mem[i]
             //else members!![i].text = ""
