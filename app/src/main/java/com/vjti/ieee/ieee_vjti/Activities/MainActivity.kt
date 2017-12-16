@@ -5,8 +5,10 @@ import android.graphics.Bitmap
 import android.net.Uri
 import android.os.AsyncTask
 import android.os.Bundle
+import android.os.Handler
 import android.support.design.widget.BottomNavigationView
 import android.support.design.widget.NavigationView
+import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
@@ -48,6 +50,7 @@ class MainActivity : AppCompatActivity()
     var databaseReferenceEvents : DatabaseReference? = null
 
     var imageURls : ArrayList<String>? = ArrayList()
+    var firstTimeConnected = false
 
     override fun onDetailsFragmentInteraction(uri: Uri) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
@@ -70,7 +73,29 @@ class MainActivity : AppCompatActivity()
         super.onCreate(savedInstanceState)
         //MainActivity.ProjectCards?.add(Project_Card_Info_Collector("mandar sadye atharva abhyankar", "manshdjkkflpwoirutykflpwoiru\ndcndnnvnjfnvjnnv", "drawable/bicyclemusic"))
         setLayout()
+
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true)
         firebaseDatabase = FirebaseDatabase.getInstance()
+        var databaseReferenceConnectionStatus = firebaseDatabase!!.getReference(".info/connected")
+        databaseReferenceConnectionStatus.addValueEventListener(object : ValueEventListener{
+            override fun onCancelled(p0: DatabaseError?) {
+                println("Connection listener was cancelled")
+            }
+
+            override fun onDataChange(p0: DataSnapshot?) {
+                var connected = p0!!.getValue(Boolean::class.java)!!
+                if(connected!!){
+                    Log.i("Now", "connected")
+                }else{
+                    Log.i("Not", "connected")
+                    if(firstTimeConnected){
+                        Toast.makeText(applicationContext, "Cannot load posts. Check internet connection", Toast.LENGTH_LONG).show()
+                    }
+                    firstTimeConnected = true
+                }
+            }
+
+        })
         databaseReferenceProjects = firebaseDatabase!!.getReference().child("projects")
         databaseReferenceProjects!!.addValueEventListener(object : ValueEventListener{
             override fun onCancelled(p0: DatabaseError) {
