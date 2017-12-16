@@ -7,8 +7,8 @@ import java.io.Serializable
  */
 class Event_Card_Info_Collector : Serializable {
     private var date: String? = null
-    private var discription: String? = null
-    private var image: String? = null
+    private var description: String? = null
+    private var img: String? = null
     private var prize: String? = null
     private var ps: String? = null
     private var register: String? = null
@@ -16,24 +16,26 @@ class Event_Card_Info_Collector : Serializable {
 
     constructor(date: String?, Discription: String?, Image: String?, prize: String = "some prize", ps: String = "some ps", register: String = "some register", venue: String = "some venue") {
         this.date = date
-        this.discription = Discription
-        this.image = Image
+        this.description = Discription
+        this.img = Image
         this.prize = prize
         this.ps = ps
         this.register = register
         this.venue = venue
     }
 
+    constructor(){}
+
     fun getDate(): String {
         return "${this.date}"
     }
 
-    fun getTDiscription(): String {
-        return "${this.discription}"
+    fun getDescription(): String {
+        return "${this.description}"
     }
 
-    fun getImage(): String {
-        return "${this.image}"
+    fun getImg(): String {
+        return "${this.img}"
     }
 
     fun getprize(): String {
@@ -51,5 +53,25 @@ class Event_Card_Info_Collector : Serializable {
     fun getvenue(): String {
         return "${this.venue}"
     }
-
+    fun setDate(date: String){
+        this.date = date
+    }
+    fun setDescription(discription : String){
+        this.description = discription
+    }
+    fun setImg(url : String){
+        this.img = img
+    }
+    fun setPrize(prize: String){
+        this.prize = prize
+    }
+    fun setPs(ps: String){
+        this.ps = ps
+    }
+    fun setRegister(register: String){
+        this.register = register
+    }
+    fun setVenue(venue: String){
+        this.venue = venue
+    }
 }

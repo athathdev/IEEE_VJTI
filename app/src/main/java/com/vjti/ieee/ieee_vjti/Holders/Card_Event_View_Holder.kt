@@ -29,6 +29,6 @@ class Card_Event_View_Holder(itemView: View) : RecyclerView.ViewHolder(itemView)
 //        var uri = station.getImage()
 //        val resource0 = Image?.getResources()?.getIdentifier(uri, null, Image?.getContext()?.getPackageName())
         Date?.setText(station.getDate())
-        Discription?.setText(station.getTDiscription())
+        Discription?.setText(station.getDescription())
     }
 }

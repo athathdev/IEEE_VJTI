@@ -42,7 +42,8 @@ class MainActivity : AppCompatActivity()
     val MIN_DISTANCE = 150
 
     var firebaseDatabase : FirebaseDatabase? = null
-    var databaseReference : DatabaseReference? = null
+    var databaseReferenceProjects : DatabaseReference? = null
+    var databaseReferenceEvents : DatabaseReference? = null
 
     override fun onDetailsFragmentInteraction(uri: Uri) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
@@ -65,10 +66,10 @@ class MainActivity : AppCompatActivity()
         super.onCreate(savedInstanceState)
 
         firebaseDatabase = FirebaseDatabase.getInstance()
-        databaseReference = firebaseDatabase!!.getReference().child("projects")
-        databaseReference!!.addValueEventListener(object : ValueEventListener{
+        databaseReferenceProjects = firebaseDatabase!!.getReference().child("projects")
+        databaseReferenceProjects!!.addValueEventListener(object : ValueEventListener{
             override fun onCancelled(p0: DatabaseError) {
-                println("loadpost:onCancelled ${p0.toException()}")
+                println("loadpost:onCancelled projects ${p0.toException()}")
             }
 
             override fun onDataChange(p0: DataSnapshot?) {
@@ -76,6 +77,22 @@ class MainActivity : AppCompatActivity()
                 Log.i("Project List", children.toString())
                 for(project in children){
                     ProjectCards!!.add(project.getValue(Project_Card_Info_Collector::class.java)!!)
+                }
+            }
+
+        })
+
+        databaseReferenceEvents = firebaseDatabase!!.getReference().child("events")
+        databaseReferenceEvents!!.addValueEventListener(object : ValueEventListener{
+            override fun onCancelled(p0: DatabaseError) {
+                println("loadpost:onCancelled events ${p0.toException()}")
+            }
+
+            override fun onDataChange(p0: DataSnapshot?) {
+                val children = p0!!.children
+                Log.i("Event List", children.toString())
+                for(event in children){
+                    EventCards!!.add(event.getValue(Event_Card_Info_Collector::class.java)!!)
                 }
             }
 
