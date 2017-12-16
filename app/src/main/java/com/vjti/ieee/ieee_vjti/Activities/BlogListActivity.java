@@ -54,7 +54,7 @@ public class BlogListActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(R.string.app_name);*/
         if (!calledAlready) {
             FirebaseApp.initializeApp(this);
-            FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+            //FirebaseDatabase.getInstance().setPersistenceEnabled(true);
             calledAlready = true;
         }
 

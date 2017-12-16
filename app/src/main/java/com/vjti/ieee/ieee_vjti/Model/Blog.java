@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Blog implements Parcelable{
-    private String mId;
+    private Long mId;
     private String mDate;
     private String mTitle="";
     private String mSubject="";
@@ -18,14 +18,14 @@ public class Blog implements Parcelable{
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(mId);
+        dest.writeString(Long.toString(mId));
         dest.writeString(mDate);
         dest.writeString(mTitle);
         dest.writeString(mSubject);
     }
 
     protected Blog(Parcel in) {
-        mId = in.readString();
+        mId = in.readLong();
         mDate = in.readString();
         mTitle = in.readString();
         mSubject = in.readString();
@@ -63,11 +63,11 @@ public class Blog implements Parcelable{
         }
     };
 
-    public String getId() {
+    public Long getId() {
         return mId;
     }
 
-    public void setId(String Id) {
+    public void setId(Long Id) {
         mId = Id;
     }
 

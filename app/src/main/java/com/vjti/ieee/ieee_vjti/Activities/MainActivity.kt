@@ -1,7 +1,9 @@
 package com.vjti.ieee.ieee_vjti.Activities
 
 import android.content.Intent
+import android.graphics.Bitmap
 import android.net.Uri
+import android.os.AsyncTask
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.design.widget.NavigationView
@@ -94,9 +96,11 @@ class MainActivity : AppCompatActivity()
                 for(event in children){
                     EventCards!!.add(event.getValue(Event_Card_Info_Collector::class.java)!!)
                 }
+                Log.i("urls of events", EventCards!!.get(0).getimg())
             }
 
         })
+
 
         //MainActivity.ProjectCards?.add(Project_Card_Info_Collector("mandar sadye atharva abhyankar", "manshdjkkflpwoirutykflpwoiru\ndcndnnvnjfnvjnnv", "drawable/bicyclemusic"))
         setLayout()
@@ -106,6 +110,13 @@ class MainActivity : AppCompatActivity()
             var fragment = MainHomeFragment()
             manager.beginTransaction().add(R.id.fragment_container,fragment).commit()
         }
+    }
+
+    class DownloadImage() : AsyncTask<String, Unit, Bitmap>() {
+        override fun doInBackground(vararg p0: String?): Bitmap {
+            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        }
+
     }
 
     override fun onBackPressed() {

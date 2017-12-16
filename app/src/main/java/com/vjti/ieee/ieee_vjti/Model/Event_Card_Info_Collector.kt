@@ -34,7 +34,7 @@ class Event_Card_Info_Collector : Serializable {
         return "${this.description}"
     }
 
-    fun getImg(): String {
+    fun getimg(): String {
         return "${this.img}"
     }
 
@@ -59,7 +59,7 @@ class Event_Card_Info_Collector : Serializable {
     fun setDescription(discription : String){
         this.description = discription
     }
-    fun setImg(url : String){
+    fun setimg(url : String){
         this.img = img
     }
     fun setPrize(prize: String){
