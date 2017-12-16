@@ -20,21 +20,14 @@ class Card_Project_View_Holder (itemView: View) : RecyclerView.ViewHolder(itemVi
         this.title = itemView.findViewById<TextView>(R.id.project_title)
         this.text = itemView.findViewById<TextView>(R.id.project_discription)
         this.members = ArrayList()
-        members!!.add(itemView.findViewById(R.id.text01))
-        members!!.add(itemView.findViewById(R.id.text02))
-        members!!.add(itemView.findViewById(R.id.text03))
-        members!!.add(itemView.findViewById(R.id.text04))
-        members!!.add(itemView.findViewById(R.id.text05))
-        members!!.add(itemView.findViewById(R.id.text06))
-        members!!.add(itemView.findViewById(R.id.text07))
     }
 
     fun updateUI(station: Project_Card_Info_Collector) {
 //        var uri = station.getImage()
 //        val resource0 = Image?.getResources()?.getIdentifier(uri, null, Image?.getContext()?.getPackageName())
         title?.setText(station.getTitle())
-        text?.setText(station.getTDiscription())
-        var i = 0
+        text?.setText(station.getText())
+        /*var i = 0
         var mem = station.getmembers()
         while(i<8){
 
@@ -42,7 +35,7 @@ class Card_Project_View_Holder (itemView: View) : RecyclerView.ViewHolder(itemVi
                 members!![i].text = mem[i]
             //else members!![i].text = ""
             i+=1
-        }
+        }*/
 
     }
 }

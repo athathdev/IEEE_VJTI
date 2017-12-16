@@ -64,7 +64,24 @@ class MainActivity : AppCompatActivity()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        MainActivity.ProjectCards?.add(Project_Card_Info_Collector("mandar sadye atharva abhyankar", "manshdjkkflpwoirutykflpwoiru\ndcndnnvnjfnvjnnv", "drawable/bicyclemusic"))
+        firebaseDatabase = FirebaseDatabase.getInstance()
+        databaseReference = firebaseDatabase!!.getReference().child("projects")
+        databaseReference!!.addValueEventListener(object : ValueEventListener{
+            override fun onCancelled(p0: DatabaseError) {
+                println("loadpost:onCancelled ${p0.toException()}")
+            }
+
+            override fun onDataChange(p0: DataSnapshot?) {
+                val children = p0!!.children
+                Log.i("Project List", children.toString())
+                for(project in children){
+                    ProjectCards!!.add(project.getValue(Project_Card_Info_Collector::class.java)!!)
+                }
+            }
+
+        })
+
+        //MainActivity.ProjectCards?.add(Project_Card_Info_Collector("mandar sadye atharva abhyankar", "manshdjkkflpwoirutykflpwoiru\ndcndnnvnjfnvjnnv", "drawable/bicyclemusic"))
         setLayout()
         val manager = supportFragmentManager
         var fragment : Fragment? = manager.findFragmentById(R.id.fragment_container)

@@ -28,15 +28,33 @@ class Project_Card_Info_Collector : Serializable {
         }
     }
 
+    constructor(){}
 
     fun getTitle():String{
         return "${this.title}"
     }
-    fun getTDiscription():String{
+    fun getText():String{
         return "${this.text}"
     }
+    fun getTeam(): String{
+        return "${this.team}"
+    }
     fun getmembers():ArrayList<String>?{
+        var split: List<String> = team!!.split(" ")
+        var i = 0
+        while (i < split!!.size) {
+            this.members?.add(" ${split[i]} ${split[i + 1]}")//for name and surname
+            i += 2
+        }
         return this.members
     }
-
+    fun setTitle(title: String){
+        this.title = title
+    }
+    fun setText(text : String){
+        this.text = text
+    }
+    fun setTeam(team :String){
+        this.team = team
+    }
 }
