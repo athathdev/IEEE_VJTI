@@ -150,7 +150,10 @@ class MainActivity : AppCompatActivity()
                 manager.beginTransaction().replace(R.id.fragment_container,MainEventFragment()).addToBackStack(null).commit()
             }
             R.id.library -> {
-
+                val url = "http://www.ieeevjti.com/library.html"
+                val intent = Intent(Intent.ACTION_VIEW)
+                intent.setData(Uri.parse(url))
+                startActivity(intent)
             }
             R.id.projects -> {
                 drawer_layout.closeDrawer(GravityCompat.START)
