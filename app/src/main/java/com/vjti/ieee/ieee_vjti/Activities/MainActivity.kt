@@ -47,6 +47,8 @@ class MainActivity : AppCompatActivity()
     var databaseReferenceProjects : DatabaseReference? = null
     var databaseReferenceEvents : DatabaseReference? = null
 
+    var imageURls : ArrayList<String>? = ArrayList()
+
     override fun onDetailsFragmentInteraction(uri: Uri) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
@@ -66,7 +68,8 @@ class MainActivity : AppCompatActivity()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        //MainActivity.ProjectCards?.add(Project_Card_Info_Collector("mandar sadye atharva abhyankar", "manshdjkkflpwoirutykflpwoiru\ndcndnnvnjfnvjnnv", "drawable/bicyclemusic"))
+        setLayout()
         firebaseDatabase = FirebaseDatabase.getInstance()
         databaseReferenceProjects = firebaseDatabase!!.getReference().child("projects")
         databaseReferenceProjects!!.addValueEventListener(object : ValueEventListener{
@@ -91,25 +94,27 @@ class MainActivity : AppCompatActivity()
             }
 
             override fun onDataChange(p0: DataSnapshot?) {
+                imageURls?.clear()
                 val children = p0!!.children
                 Log.i("Event List", children.toString())
                 for(event in children){
                     EventCards!!.add(event.getValue(Event_Card_Info_Collector::class.java)!!)
                 }
-                Log.i("urls of events", EventCards!!.get(0).getimg())
+                var x = EventCards!!.size - 1
+                for(event in EventCards!!){
+                    imageURls?.add(event.getimg()!!)
+                    Log.i("urls of events 2", imageURls.toString())
+                }
+                val manager = supportFragmentManager
+                var fragment : Fragment? = manager.findFragmentById(R.id.fragment_container)
+                if (fragment == null){
+                    var fragment = MainEventFragment()
+                    manager.beginTransaction().add(R.id.fragment_container,fragment).commit()
+                }
             }
 
         })
 
-
-        //MainActivity.ProjectCards?.add(Project_Card_Info_Collector("mandar sadye atharva abhyankar", "manshdjkkflpwoirutykflpwoiru\ndcndnnvnjfnvjnnv", "drawable/bicyclemusic"))
-        setLayout()
-        val manager = supportFragmentManager
-        var fragment : Fragment? = manager.findFragmentById(R.id.fragment_container)
-        if (fragment == null){
-            var fragment = MainHomeFragment()
-            manager.beginTransaction().add(R.id.fragment_container,fragment).commit()
-        }
     }
 
     class DownloadImage() : AsyncTask<String, Unit, Bitmap>() {

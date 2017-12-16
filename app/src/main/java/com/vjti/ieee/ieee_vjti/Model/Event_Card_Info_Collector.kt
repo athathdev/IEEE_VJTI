@@ -60,7 +60,7 @@ class Event_Card_Info_Collector : Serializable {
         this.description = discription
     }
     fun setimg(url : String){
-        this.img = img
+        this.img = url
     }
     fun setPrize(prize: String){
         this.prize = prize
