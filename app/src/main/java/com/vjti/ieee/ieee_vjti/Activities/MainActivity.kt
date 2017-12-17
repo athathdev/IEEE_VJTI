@@ -314,7 +314,7 @@ class MainActivity : AppCompatActivity()
         var manager = supportFragmentManager
         projectpassthrough = selectedStation
         manager.beginTransaction()
-                .replace(R.id.fragment_container,ProjectDetailFragment())
+                .replace(R.id.fragment_container, ProjectDetailFragment())
                 .addToBackStack(null)
                 .commit()
     }
