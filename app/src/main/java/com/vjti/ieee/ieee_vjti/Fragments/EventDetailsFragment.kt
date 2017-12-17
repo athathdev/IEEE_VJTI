@@ -7,6 +7,9 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.TextView
 
 import com.vjti.ieee.ieee_vjti.R
 
@@ -37,6 +40,12 @@ class EventDetailsFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
+        val view = inflater!!.inflate(R.layout.fragment_event_details, container, false)
+        val eventTitle = view.findViewById<TextView>(R.id.event_fragment_title)
+        val eventImage = view.findViewById<ImageView>(R.id.event_fragment_image)
+        val eventDescription = view.findViewById<TextView>(R.id.event_fragment_description)
+        val problemstatement = view.findViewById<TextView>(R.id.event_fragment_ps)
+        val registerButton = view.findViewById<Button>(R.id.event_fragment_register)
         return inflater!!.inflate(R.layout.fragment_event_details, container, false)
     }
 

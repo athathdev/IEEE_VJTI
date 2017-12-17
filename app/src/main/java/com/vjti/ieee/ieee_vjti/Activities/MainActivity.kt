@@ -21,10 +21,7 @@ import android.view.MotionEvent
 import android.widget.Toast
 import android.widget.Toolbar
 import com.google.firebase.database.*
-import com.vjti.ieee.ieee_vjti.Fragments.DetailsFragment
-import com.vjti.ieee.ieee_vjti.Fragments.MainEventFragment
-import com.vjti.ieee.ieee_vjti.Fragments.MainHomeFragment
-import com.vjti.ieee.ieee_vjti.Fragments.MainProjectFragment
+import com.vjti.ieee.ieee_vjti.Fragments.*
 import com.vjti.ieee.ieee_vjti.Model.Event_Card_Info_Collector
 import com.vjti.ieee.ieee_vjti.Model.Home_Card_Info_Collector
 import com.vjti.ieee.ieee_vjti.Model.Project_Card_Info_Collector
@@ -296,7 +293,7 @@ class MainActivity : AppCompatActivity()
         var manager = supportFragmentManager
 
         manager.beginTransaction()
-                .replace(R.id.fragment_container,DetailsFragment())
+                .replace(R.id.fragment_container, DetailsFragment())
                 .addToBackStack(null)
                 .commit()
     }
