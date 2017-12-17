@@ -41,7 +41,9 @@ class Project_Card_Info_Collector : Serializable {
     }
     fun getmembers():ArrayList<String>?{
         members = ArrayList()
+
         var split: List<String> = team!!.split(" ")
+        if(split.size % 2 == 1) return this.members
         var i = 0
         while (i < split!!.size) {
             this.members?.add(" ${split[i]} ${split[i + 1]}")//for name and surname

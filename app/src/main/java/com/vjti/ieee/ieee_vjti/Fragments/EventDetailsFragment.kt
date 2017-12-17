@@ -41,23 +41,22 @@ class EventDetailsFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val view = inflater!!.inflate(R.layout.fragment_event_details, container, false)
-//        val eventDate = view.findViewById<TextView>(R.id.event_fragment_date)
-//        val eventImage = view.findViewById<ImageView>(R.id.event_fragment_image)
-//        val eventDescription = view.findViewById<TextView>(R.id.event_fragment_description)
-//        val prize = view.findViewById<TextView>(R.id.event_fragment_prize)
-//        val problemstatement = view.findViewById<TextView>(R.id.event_fragment_ps)
-//        val registerButton = view.findViewById<Button>(R.id.event_fragment_register)
-//        val venue = view.findViewById<TextView>(R.id.event_fragment_venue)
-//            eventDate.text = "mandar"
-//            eventImage.setImageBitmap(station!!.getEventImage())
-//            eventDescription.text = station!!.getDescription()
-//            prize.text = station!!.getprize()
-//            problemstatement.text = station!!.getps()
-//            onClickRegisterButton = station!!.getregister()
-//            venue.text = station!!.getvenue()
-//            registerButton.setOnClickListener(onClick)
-        view.findViewById<TextView>(R.id.event_fragment_date).text = "mandar"
-        return inflater!!.inflate(R.layout.fragment_event_details, container, false)
+        val eventDate = view.findViewById<TextView>(R.id.event_fragment_date)
+        val eventImage = view.findViewById<ImageView>(R.id.event_fragment_image)
+        val eventDescription = view.findViewById<TextView>(R.id.event_fragment_description)
+        val prize = view.findViewById<TextView>(R.id.event_fragment_prize)
+        val problemstatement = view.findViewById<TextView>(R.id.event_fragment_ps)
+        val registerButton = view.findViewById<Button>(R.id.event_fragment_register)
+        val venue = view.findViewById<TextView>(R.id.event_fragment_venue)
+            eventDate.text = station!!.getDate()
+            eventImage.setImageBitmap(station!!.getEventImage())
+            eventDescription.text = station!!.getimg()
+            prize.text = station!!.getprize()
+            problemstatement.text = station!!.getps()
+            onClickRegisterButton = station!!.getregister()
+            venue.text = station!!.getvenue()
+            registerButton.setOnClickListener(onClick)
+        return view
     }
 
     var onClick = View.OnClickListener { view ->
