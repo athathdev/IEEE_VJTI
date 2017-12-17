@@ -1,6 +1,7 @@
 package com.vjti.ieee.ieee_vjti.Fragments
 
 import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -28,6 +29,7 @@ class EventDetailsFragment : Fragment() {
     // TODO: Rename and change types of parameters
     var station : Event_Card_Info_Collector? = null
     var onClickRegisterButton : String? = null
+    var onClickPSButton : String? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (arguments != null) {
@@ -45,24 +47,35 @@ class EventDetailsFragment : Fragment() {
         val eventImage = view.findViewById<ImageView>(R.id.event_fragment_image)
         val eventDescription = view.findViewById<TextView>(R.id.event_fragment_description)
         val prize = view.findViewById<TextView>(R.id.event_fragment_prize)
-        val problemstatement = view.findViewById<TextView>(R.id.event_fragment_ps)
+        val problemstatement = view.findViewById<Button>(R.id.event_fragment_ps)
         val registerButton = view.findViewById<Button>(R.id.event_fragment_register)
         val venue = view.findViewById<TextView>(R.id.event_fragment_venue)
             eventDate.text = station!!.getDate()
             eventImage.setImageBitmap(station!!.getEventImage())
             eventDescription.text = station!!.getimg()
             prize.text = station!!.getprize()
-            problemstatement.text = station!!.getps()
+            //problemstatement.text = station!!.getps()
+            onClickPSButton = station!!.getps()
+            problemstatement.setOnClickListener(onClick2)
             onClickRegisterButton = station!!.getregister()
             venue.text = station!!.getvenue()
             registerButton.setOnClickListener(onClick)
         return view
     }
 
+    var onClick2 = View.OnClickListener { view1 ->
+        val intent = Intent(Intent.ACTION_VIEW)
+        intent.setData(Uri.parse(onClickPSButton))
+        view1.context.startActivity(intent)
+    }
+
     var onClick = View.OnClickListener { view ->
 
         //here write a code to open the page in browser
         //link is stored in variable onClickRegisterButton
+        val intent = Intent(Intent.ACTION_VIEW)
+        intent.setData(Uri.parse(onClickRegisterButton))
+        view.context.startActivity(intent)
     }
 
 

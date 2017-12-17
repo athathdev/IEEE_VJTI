@@ -43,6 +43,7 @@ class MainActivity : AppCompatActivity()
     private var x1: Float = 0.toFloat()
     private var x2: Float = 0.toFloat()
     val MIN_DISTANCE = 150
+    var calledAlready = false
 
     var firebaseDatabase : FirebaseDatabase? = null
     var databaseReferenceProjects : DatabaseReference? = null
@@ -73,7 +74,10 @@ class MainActivity : AppCompatActivity()
         //MainActivity.ProjectCards?.add(Project_Card_Info_Collector("mandar sadye atharva abhyankar", "manshdjkkflpwoirutykflpwoiru\ndcndnnvnjfnvjnnv", "drawable/bicyclemusic"))
         setLayout()
 
-        FirebaseDatabase.getInstance().setPersistenceEnabled(true)
+        if(!calledAlready){
+            FirebaseDatabase.getInstance().setPersistenceEnabled(true)
+            calledAlready = true
+        }
         firebaseDatabase = FirebaseDatabase.getInstance()
         var databaseReferenceConnectionStatus = firebaseDatabase!!.getReference(".info/connected")
         databaseReferenceConnectionStatus.addValueEventListener(object : ValueEventListener{
