@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.vjti.ieee.ieee_vjti.Activities.MainActivity
 import com.vjti.ieee.ieee_vjti.Holders.Card_Home_View_Holder
 import com.vjti.ieee.ieee_vjti.Model.Home_Card_Info_Collector
@@ -26,7 +27,8 @@ class Home_Adapter (stations: ArrayList<Home_Card_Info_Collector>): RecyclerView
         holder.itemView.setOnClickListener(object : View.OnClickListener {
             override  fun onClick(v: View) {
                 //Load the details
-                MainActivity.mainActivity?.loadDetailsScreen(station)
+                val url = station.getTDiscription()
+                Toast.makeText(MainActivity.mainActivity, station.getTDiscription(), Toast.LENGTH_SHORT).show();
             }
         })
 

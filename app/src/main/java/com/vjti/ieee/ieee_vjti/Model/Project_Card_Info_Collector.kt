@@ -40,6 +40,7 @@ class Project_Card_Info_Collector : Serializable {
         return "${this.team}"
     }
     fun getmembers():ArrayList<String>?{
+        members = ArrayList()
         var split: List<String> = team!!.split(" ")
         var i = 0
         while (i < split!!.size) {

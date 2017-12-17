@@ -1,11 +1,14 @@
 package com.vjti.ieee.ieee_vjti.Model
 
 import android.graphics.Bitmap
+import android.os.Parcel
+import android.os.Parcelable
 import java.io.Serializable
 
 /**
  * Created by mandar on 25-10-2017.
  */
+
 class Event_Card_Info_Collector : Serializable {
     private var date: String? = null
     private var description: String? = null
@@ -15,6 +18,10 @@ class Event_Card_Info_Collector : Serializable {
     private var register: String? = null
     private var venue: String? = null
     var Image : Bitmap? = null
+
+    constructor(i : Parcel){
+
+    }
 
     constructor(date: String?, Discription: String?, Image: String?, prize: String = "some prize", ps: String = "some ps", register: String = "some register", venue: String = "some venue", EventImage : Bitmap?) {
         this.date = date

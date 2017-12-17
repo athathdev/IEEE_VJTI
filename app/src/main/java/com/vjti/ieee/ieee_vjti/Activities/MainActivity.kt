@@ -286,42 +286,38 @@ class MainActivity : AppCompatActivity()
         var ProjectCards : ArrayList<Project_Card_Info_Collector>? = ArrayList()
         var EventCards : ArrayList<Event_Card_Info_Collector>? = ArrayList()
         var HomeCards : ArrayList<Home_Card_Info_Collector>? = ArrayList()
+        var IMG : Bitmap? = null
+        var projectpassthrough : Project_Card_Info_Collector? = null
     }
 
 
     fun loadDetailsScreen(selectedStation: Event_Card_Info_Collector) {
+        var bundle : Bundle = Bundle()
+        bundle.putString("Date", selectedStation.getDate())
+        bundle.putString("Image", selectedStation.getimg())
+        bundle.putString("Discription", selectedStation.getDescription())
+        bundle.putString("Prize", selectedStation.getprize())
+        bundle.putString("PS", selectedStation.getps())
+        bundle.putString("Register", selectedStation.getregister())
+        bundle.putString("Venue", selectedStation.getvenue())
+        MainActivity.IMG = selectedStation.getEventImage()
         var manager = supportFragmentManager
-
+        var fragment = EventDetailsFragment()
+        fragment.arguments = bundle
         manager.beginTransaction()
-                .replace(R.id.fragment_container, DetailsFragment())
+                .replace(R.id.fragment_container, fragment)
                 .addToBackStack(null)
                 .commit()
     }
-    fun loadDetailsScreen(selectedStation: Home_Card_Info_Collector) {
-        var manager = supportFragmentManager
 
-        manager.beginTransaction()
-                .replace(R.id.fragment_container,DetailsFragment())
-                .addToBackStack(null)
-                .commit()
-    }
     fun loadDetailsScreen(selectedStation: Project_Card_Info_Collector) {
         var manager = supportFragmentManager
-
+        projectpassthrough = selectedStation
         manager.beginTransaction()
-                .replace(R.id.fragment_container,DetailsFragment())
+                .replace(R.id.fragment_container,ProjectDetailFragment())
                 .addToBackStack(null)
                 .commit()
     }
-    fun loadDetailsScreen(selectedStation: Super_Event_Card_Info_Collector) {
-        var manager = supportFragmentManager
-
-        manager.beginTransaction()
-                .replace(R.id.fragment_container,DetailsFragment())
-                .addToBackStack(null)
-                .commit()
-    }
-
     override fun onTouchEvent(event: MotionEvent): Boolean {
         when (event.action) {
             MotionEvent.ACTION_DOWN -> x1 = event.x

@@ -5,12 +5,12 @@ package com.vjti.ieee.ieee_vjti.Model
  */
 class Home_Card_Info_Collector {
     private var Title : String? = null
-    private var Discription: String? = null
+    private var url: String? = null
     private var Image: String? = null
 
-    constructor(Title: String?, Discription: String?, Image: String?) {
+    constructor(Title: String?, url: String?, Image: String?) {
         this.Title = Title
-        this.Discription = Discription
+        this.url = url
         this.Image = Image
     }
 
@@ -18,7 +18,7 @@ class Home_Card_Info_Collector {
         return "${this.Title}"
     }
     fun getTDiscription():String{
-        return "${this.Discription}"
+        return "${this.url}"
     }
     fun getImage():String{
         return "${this.Image}"

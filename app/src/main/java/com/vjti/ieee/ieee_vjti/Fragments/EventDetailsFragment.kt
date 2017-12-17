@@ -10,6 +10,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import com.vjti.ieee.ieee_vjti.Activities.MainActivity
+import com.vjti.ieee.ieee_vjti.Model.Event_Card_Info_Collector
 
 import com.vjti.ieee.ieee_vjti.R
 
@@ -24,16 +26,14 @@ import com.vjti.ieee.ieee_vjti.R
 class EventDetailsFragment : Fragment() {
 
     // TODO: Rename and change types of parameters
-    private var mParam1: String? = null
-    private var mParam2: String? = null
-
-    private var mListener: OnFragmentInteractionListener? = null
-
+    var station : Event_Card_Info_Collector? = null
+    var onClickRegisterButton : String? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (arguments != null) {
-            mParam1 = arguments.getString(ARG_PARAM1)
-            mParam2 = arguments.getString(ARG_PARAM2)
+            station = Event_Card_Info_Collector(arguments.getString("Date"), arguments.getString("Image"), arguments.getString("Discription"),
+                    arguments.getString("Prize"), arguments.getString("PS"), arguments.getString("Register"),
+                    arguments.getString("Venue"), MainActivity.IMG)
         }
     }
 
@@ -41,48 +41,31 @@ class EventDetailsFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val view = inflater!!.inflate(R.layout.fragment_event_details, container, false)
-        val eventTitle = view.findViewById<TextView>(R.id.event_fragment_title)
-        val eventImage = view.findViewById<ImageView>(R.id.event_fragment_image)
-        val eventDescription = view.findViewById<TextView>(R.id.event_fragment_description)
-        val problemstatement = view.findViewById<TextView>(R.id.event_fragment_ps)
-        val registerButton = view.findViewById<Button>(R.id.event_fragment_register)
+//        val eventDate = view.findViewById<TextView>(R.id.event_fragment_date)
+//        val eventImage = view.findViewById<ImageView>(R.id.event_fragment_image)
+//        val eventDescription = view.findViewById<TextView>(R.id.event_fragment_description)
+//        val prize = view.findViewById<TextView>(R.id.event_fragment_prize)
+//        val problemstatement = view.findViewById<TextView>(R.id.event_fragment_ps)
+//        val registerButton = view.findViewById<Button>(R.id.event_fragment_register)
+//        val venue = view.findViewById<TextView>(R.id.event_fragment_venue)
+//            eventDate.text = "mandar"
+//            eventImage.setImageBitmap(station!!.getEventImage())
+//            eventDescription.text = station!!.getDescription()
+//            prize.text = station!!.getprize()
+//            problemstatement.text = station!!.getps()
+//            onClickRegisterButton = station!!.getregister()
+//            venue.text = station!!.getvenue()
+//            registerButton.setOnClickListener(onClick)
+        view.findViewById<TextView>(R.id.event_fragment_date).text = "mandar"
         return inflater!!.inflate(R.layout.fragment_event_details, container, false)
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    fun onButtonPressed(uri: Uri) {
-        if (mListener != null) {
-            mListener!!.onFragmentInteraction(uri)
-        }
+    var onClick = View.OnClickListener { view ->
+
+        //here write a code to open the page in browser
+        //link is stored in variable onClickRegisterButton
     }
 
-    override fun onAttach(context: Context?) {
-        super.onAttach(context)
-        if (context is OnFragmentInteractionListener) {
-            mListener = context
-        } else {
-            throw RuntimeException(context!!.toString() + " must implement OnFragmentInteractionListener")
-        }
-    }
-
-    override fun onDetach() {
-        super.onDetach()
-        mListener = null
-    }
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     *
-     *
-     * See the Android Training lesson [Communicating with Other Fragments](http://developer.android.com/training/basics/fragments/communicating.html) for more information.
-     */
-    interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        fun onFragmentInteraction(uri: Uri)
-    }
 
     companion object {
         // TODO: Rename parameter arguments, choose names that match
