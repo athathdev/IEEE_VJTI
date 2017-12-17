@@ -1,5 +1,6 @@
 package com.vjti.ieee.ieee_vjti.Model
 
+import android.graphics.Bitmap
 import java.io.Serializable
 
 /**
@@ -13,8 +14,9 @@ class Event_Card_Info_Collector : Serializable {
     private var ps: String? = null
     private var register: String? = null
     private var venue: String? = null
+    var Image : Bitmap? = null
 
-    constructor(date: String?, Discription: String?, Image: String?, prize: String = "some prize", ps: String = "some ps", register: String = "some register", venue: String = "some venue") {
+    constructor(date: String?, Discription: String?, Image: String?, prize: String = "some prize", ps: String = "some ps", register: String = "some register", venue: String = "some venue", EventImage : Bitmap?) {
         this.date = date
         this.description = Discription
         this.img = Image
@@ -22,9 +24,14 @@ class Event_Card_Info_Collector : Serializable {
         this.ps = ps
         this.register = register
         this.venue = venue
+        this.Image = EventImage
     }
 
     constructor(){}
+
+    fun getEventImage() : Bitmap{
+        return Image!!
+    }
 
     fun getDate(): String {
         return "${this.date}"

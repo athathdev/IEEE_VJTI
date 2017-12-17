@@ -2,6 +2,7 @@ package com.vjti.ieee.ieee_vjti.Activities
 
 import android.content.Intent
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.AsyncTask
 import android.os.Bundle
@@ -32,6 +33,7 @@ import com.vjti.ieee.ieee_vjti.R
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.content_main.*
+import java.net.URL
 
 class MainActivity : AppCompatActivity()
         ,NavigationView.OnNavigationItemSelectedListener
@@ -128,6 +130,7 @@ class MainActivity : AppCompatActivity()
                 var x = EventCards!!.size - 1
                 for(event in EventCards!!){
                     imageURls?.add(event.getimg()!!)
+                    event.Image = DownloadImage().execute(event.getimg()!!).get()
                     Log.i("urls of events 2", imageURls.toString())
                 }
                 val manager = supportFragmentManager
@@ -144,7 +147,18 @@ class MainActivity : AppCompatActivity()
 
     class DownloadImage() : AsyncTask<String, Unit, Bitmap>() {
         override fun doInBackground(vararg p0: String?): Bitmap {
-            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            var bitmap : Bitmap? = null
+            try {
+                val inputStream = URL(p0[0]).openStream()
+                bitmap = BitmapFactory.decodeStream(inputStream)
+                inputStream.close()
+            }catch (e : Exception){
+                //Toast.makeText(baseContext, "Cannot download images. Check your internet", Toast.LENGTH_LONG).show()
+                Log.i("Image downloading task", "Error")
+            }
+            Bitmap.createScaledBitmap(bitmap, 70, 70, true)
+            Log.i("Image downloading task", "Done")
+            return bitmap!!
         }
 
     }

@@ -23,6 +23,7 @@ class Card_Event_View_Holder(itemView: View) : RecyclerView.ViewHolder(itemView)
     init  {
         this.Date = itemView.findViewById<TextView>(R.id.event_title)
         this.Discription = itemView.findViewById<TextView>(R.id.event_discription)
+        this.Image = itemView.findViewById<ImageView>(R.id.event_image)
     }
 
     fun updateUI(station: Event_Card_Info_Collector) {
@@ -30,5 +31,6 @@ class Card_Event_View_Holder(itemView: View) : RecyclerView.ViewHolder(itemView)
 //        val resource0 = Image?.getResources()?.getIdentifier(uri, null, Image?.getContext()?.getPackageName())
         Date?.setText(station.getDate())
         Discription?.setText(station.getDescription())
+        Image?.setImageBitmap(station.getEventImage())
     }
 }
