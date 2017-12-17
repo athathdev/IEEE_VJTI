@@ -19,14 +19,14 @@ class Super_Card_Project_View_Holder (itemView: View) : RecyclerView.ViewHolder(
     private var recyclerView: RecyclerView? = null
 
     init {
-        this.Category = itemView.findViewById<TextView>(R.id.text_super_project)
+        //this.Category = itemView.findViewById<TextView>(R.id.text_super_project)
         this.recyclerView = itemView.findViewById<RecyclerView>(R.id.recycler_view_super_project)
     }
 
 
 
     fun updateUI(station: Super_Project_Card_Info_Collector) {
-        this.Category?.setText(station.getCategory().toString())
+        //this.Category?.setText(station.getCategory().toString())
         recyclerView?.setHasFixedSize(true)
         recyclerView?.addItemDecoration(HorizontalSpaceItemDecorator(MainActivity.spacer))
         var eventdata : ProjectDataService = ProjectDataService().getInstance()

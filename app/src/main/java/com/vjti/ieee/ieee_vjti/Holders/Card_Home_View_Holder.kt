@@ -18,7 +18,7 @@ class Card_Home_View_Holder (itemView: View) : RecyclerView.ViewHolder(itemView)
     init  {
         this.Title = itemView.findViewById<TextView>(R.id.home_title)
         this.Image = itemView.findViewById<ImageView>(R.id.home_image)
-        this.Discription = itemView.findViewById<TextView>(R.id.home_discription)
+        //this.Discription = itemView.findViewById<TextView>(R.id.home_discription)
     }
 
     fun updateUI(station: Home_Card_Info_Collector) {
@@ -27,6 +27,6 @@ class Card_Home_View_Holder (itemView: View) : RecyclerView.ViewHolder(itemView)
         Image?.setImageResource(resource0!!)
 
         Title?.setText(station.getTitle())
-        Discription?.setText(station.getTDiscription())
+        //Discription?.setText(station.getTDiscription())
     }
 }

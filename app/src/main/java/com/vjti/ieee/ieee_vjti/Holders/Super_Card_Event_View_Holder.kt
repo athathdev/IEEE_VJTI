@@ -21,14 +21,14 @@ class Super_Card_Event_View_Holder (itemView: View) : RecyclerView.ViewHolder(it
     private var recyclerView: RecyclerView? = null
 
     init {
-        this.Category = itemView.findViewById<TextView>(R.id.text_super_event)
+        //this.Category = itemView.findViewById<TextView>(R.id.text_super_event)
         this.recyclerView = itemView.findViewById<RecyclerView>(R.id.recycler_view_super_event)
     }
 
 
 
     fun updateUI(station: Super_Event_Card_Info_Collector) {
-        this.Category?.setText(station.getCategory().toString())
+        //this.Category?.setText(station.getCategory().toString())
         recyclerView?.setHasFixedSize(true)
         recyclerView?.addItemDecoration(HorizontalSpaceItemDecorator(MainActivity.spacer))
         var eventdata : EventDataService = EventDataService().getInstance()

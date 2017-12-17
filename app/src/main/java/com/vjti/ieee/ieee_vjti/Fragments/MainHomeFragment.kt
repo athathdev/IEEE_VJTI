@@ -5,6 +5,7 @@ import android.graphics.Rect
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -41,7 +42,7 @@ class MainHomeFragment : Fragment() {
         var homedata : HomeDataService = HomeDataService().getInstance()
         val home_adapter = Home_Adapter(homedata.getFeaturedStations())
         recyclerView.adapter = home_adapter
-        val layoutManager = LinearLayoutManager(getContext())
+        val layoutManager = GridLayoutManager(getContext(),2)
         layoutManager.orientation = LinearLayoutManager.VERTICAL
         recyclerView.layoutManager = layoutManager
         //MainActivity.mainActivity!!.actionBar.setTitle("HOME")
@@ -113,9 +114,8 @@ class MainHomeFragment : Fragment() {
         override  fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
             super.getItemOffsets(outRect, view, parent, state)
             outRect.top = spacer/2
-            outRect.bottom = spacer/2
-            outRect.left = spacer
-            outRect.right = spacer
+            outRect.left = spacer/4
+            outRect.right = spacer/4
         }
     }
 }// Required empty public constructor

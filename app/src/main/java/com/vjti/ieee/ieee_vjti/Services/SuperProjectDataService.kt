@@ -25,7 +25,6 @@ class SuperProjectDataService {
         array.add("NEW")
         val list = ArrayList<Super_Project_Card_Info_Collector>()
         list.add(Super_Project_Card_Info_Collector((array[0]),0))
-        list.add(Super_Project_Card_Info_Collector((array[0]),0))
         return list
     }
 }

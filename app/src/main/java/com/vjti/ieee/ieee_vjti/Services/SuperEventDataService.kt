@@ -25,7 +25,6 @@ class SuperEventDataService {
         array.add("TOP")
         val list = ArrayList<Super_Event_Card_Info_Collector>()
         list.add(Super_Event_Card_Info_Collector((array[0]),0))
-        list.add(Super_Event_Card_Info_Collector((array[0]),0))
         return list
     }
 }
